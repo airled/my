@@ -1,0 +1,64 @@
+def wr pth
+  puts 'enter'
+  a=gets.chomp
+  f=File.open(pth,'a')
+  f.puts Time.new.to_s+' - '+a
+  f.close
+  puts "->#{a} added"
+  puts
+end
+
+def rd pth
+  puts("/")
+  File.open(pth){|k| puts k.read}
+  puts('/')
+end
+
+def cl pth
+  if File.size(pth)==0
+    puts "Already cleared"
+    puts
+  else File.open(pth,'w'){}
+    puts 'File cleared'
+    puts
+  end  
+end  
+
+puts ("Enter the path to the file (enter 'd' for default path)")
+rt=gets.chomp
+rtd="c:\\ex\\0"
+rt=rtd if rt=='d'
+
+loop do
+  puts 'Do what?'
+  puts '1 - Add'
+  puts '2 - Read'
+  puts '3 - Clear'
+  puts '4 - Change'
+  puts '5 - Exit'
+  a=gets.chomp
+  case a
+    when '1' then wr rt
+    when '2' then rd rt
+    when '3'
+      loop do
+        puts
+        puts 'Sure? y/n'
+        b=gets.chomp
+        case b
+          when 'y' 
+            cl rt
+            break
+          when 'n' then break
+          else puts 'Error. No option'
+        end
+      end
+#    when '4'
+#    break
+    when '5' then exit
+  else 
+    puts "Error. No option"
+    exit
+    puts
+  end
+end

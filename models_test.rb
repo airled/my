@@ -50,26 +50,17 @@ Album.create(:artist_id=>4,:name=>'Interloper')
 Album.create(:artist_id=>5,:name=>'Powerswitch')
 Album.create(:artist_id=>5,:name=>'Hybridcore')
 
-@artist=Artist[:name=>'Aesthetische']
-p @artist.albums_dataset.select(:name)
-@album=Album[:name=>'CMASA']
-p @album.artist
-#@artist.remove_all_albums
-#artist.add_album(:name=>'Northern Light')
+artist=Artist[:name=>'Covenant']
+artist.add_album(:name=>'Dreams Of A Cryotank')
 
-#binding.pry
+album=Album.new(:name=>'OLOLO')
+Artist.create(:name=>'2ch')
+artist=Artist[:name=>'2ch']
+album.artist=artist
+album.save
+
 =begin
-a=gets.chomp
-b=gets.chomp
-
-t1=Tab.new
-t2=Tab.new
-t1.name=a
-t2.name=b
-t1.save
-t2.save
-puts database[:tab].all
-puts
-t1.destroy
-puts database[:tab].all 
+Album.create(:name=>'PISH PISH OLOLO',:artist_id=>10)
+album=Album[:name=>'PISH PISH OLOLO']
+album.artist=Artist.create(:name=>'2ch')
 =end

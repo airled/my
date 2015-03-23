@@ -1,6 +1,6 @@
 require 'sequel'
 require 'mysql2'
-#require 'pry'
+require 'pry'
 require 'logger'
 
 database=Sequel.connect(:adapter=>'mysql2', :host=>'localhost', :user=>'root', :database=>'test')

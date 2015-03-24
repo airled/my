@@ -52,15 +52,8 @@ Album.create(:artist_id=>5,:name=>'Hybridcore')
 
 artist=Artist[:name=>'Covenant']
 artist.add_album(:name=>'Dreams Of A Cryotank')
-
 album=Album.new(:name=>'OLOLO')
 Artist.create(:name=>'2ch')
 artist=Artist[:name=>'2ch']
 album.artist=artist
 album.save
-
-=begin
-Album.create(:name=>'PISH PISH OLOLO',:artist_id=>10)
-album=Album[:name=>'PISH PISH OLOLO']
-album.artist=Artist.create(:name=>'2ch')
-=end

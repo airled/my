@@ -13,7 +13,6 @@ DB=Sequel.connect(:adapter=>'mysql2', :user=>'root', :host=>'localhost', :databa
 
 DB.run('drop table if exists urls')
 
-
 class Url < Sequel::Model
 end
 

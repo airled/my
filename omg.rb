@@ -7,7 +7,7 @@ require 'open-uri'
 doc = Nokogiri::HTML(open('http://www.catalog.onliner.by'))
 
 #array of URLS
-xrequest='"//table[@class='fphotblock add_line_main_menu']//div/a[1]/@href"'
+xrequest="//table[@class='fphotblock add_line_main_menu']//div/a[1]/@href"
 urls = doc.xpath(xrequest).each do |link|
   link.value
 end

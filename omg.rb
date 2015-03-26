@@ -8,9 +8,7 @@ doc = Nokogiri::HTML(open('http://www.catalog.onliner.by'))
 
 #array of URLS
 xrequest="//table[@class='fphotblock add_line_main_menu']//div/a[1]/@href"
-urls = doc.xpath(xrequest).map{|link| link.value}
-
-urls.uniq!.sort!
+urls = doc.xpath(xrequest).map{|link| link.value}.uniq!
 
 DB=Sequel.connect(:adapter=>'mysql2', :user=>'root', :host=>'localhost', :database=>'test')
 
@@ -23,6 +21,4 @@ end
 class Url < Sequel::Model
 end
 
-urls.map do |url|
-	Url.create(:url=>url)
-end
+urls.map {|url| Url.create(:url=>url)}

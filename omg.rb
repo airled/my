@@ -8,9 +8,8 @@ doc = Nokogiri::HTML(open('http://www.catalog.onliner.by'))
 
 #array of URLS
 xrequest="//table[@class='fphotblock add_line_main_menu']//div/a[1]/@href"
-urls = doc.xpath(xrequest).each do |link|
-  link.value
-end
+urls = doc.xpath(xrequest).map{|link| link.value}
+
 urls.uniq!.sort!
 
 DB=Sequel.connect(:adapter=>'mysql2', :user=>'root', :host=>'localhost', :database=>'test')

@@ -1,6 +1,6 @@
 require 'sequel'
 require 'mysql2'
-require 'curb'
+#require 'curb'
 require 'nokogiri'
 require 'open-uri'
 

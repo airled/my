@@ -1,4 +1,4 @@
-class CreateUrls
+class CreateUrls < Sequel::Migration
 
 	def up
 		create_table :urls do

@@ -11,17 +11,17 @@ doc = Nokogiri::HTML(open('http://www.catalog.onliner.by'))
 #/tbody/tr/td/div/ul/li
 doc.xpath("//table[@class='fphotblock add_line_main_menu']//div/a[1]/@href").each do |link|
 #doc.xpath("//table[@class='fphotblock add_line_main_menu']//li").each do |link|
-	arr.push link.value
-	#arr.push i.to_s+' - '+link
-	#i+=1
+  arr.push link.value
+  #arr.push i.to_s+' - '+link
+  #i+=1
 end
 puts arr.size
 arr=arr.sort
 
 i=1
 arr.map do |val|
-	arr[i-1]=i.to_s+' - '+arr[i-1]
-	i+=1
+  arr[i-1]=i.to_s+' - '+arr[i-1]
+  i+=1
 end
 
 file.puts arr

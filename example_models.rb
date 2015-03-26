@@ -7,9 +7,9 @@ DB=Sequel.connect(:adapter=>'mysql2', :host=>'localhost', :user=>'root', :databa
 # Create a new Country table with columns of
 # id, name, and population.
 DB.create_table :countries do 
-    primary_key :id
-    column :name, :text, :unique=>true
-    column :population, :integer
+  primary_key :id
+  column :name, :text, :unique=>true
+  column :population, :integer
 end
 
 # Create a Country model.

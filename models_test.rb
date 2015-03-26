@@ -9,9 +9,9 @@ database=Sequel.connect(:adapter=>'mysql2', :host=>'localhost', :user=>'root', :
 
 database.run('drop table if exists artists')
 database.create_table(:artists) do
-	primary_key :id
-	String :name
-	String :country
+  primary_key :id
+  String :name
+  String :country
 end
 
 database.run('drop table if exists albums')
@@ -22,7 +22,7 @@ database.create_table(:albums) do
 end
 
 class Artist < Sequel::Model
-	plugin :validation_helpers
+  plugin :validation_helpers
   one_to_many :albums		
 end
 

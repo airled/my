@@ -10,32 +10,32 @@ tabname=gets.chomp
 puts 'Enter the names of the columns (enter "-h" to stop)'
 colnames=[]
 loop do
-	name=gets.chomp
-	break if name=='-h'
-	colnames.push name
+  name=gets.chomp
+  break if name=='-h'
+  colnames.push name
 end
  
 #creating value aggregating array
 puts 'Enter the row values separated with "," (enter "-h" to stop)'
 aggrarr=[]
 loop do
-	arr=[]
-	val=gets.chomp
-	break if val=='-h'
-	arr=val.split(',')
-	aggrarr.push arr
+  arr=[]
+  val=gets.chomp
+  break if val=='-h'
+  arr=val.split(',')
+  aggrarr.push arr
 end
 
 #creating a table
 database.create_table tabname.to_sym do
-	primary_key :id
+  primary_key :id
 end
  
 #adding the columns
 colnames.map do |colname|
-	database.alter_table tabname.to_sym do
-		add_column colname , String
-	end
+  database.alter_table tabname.to_sym do
+    add_column colname , String
+  end
 end
  
 dataset=database[tabname.to_sym]

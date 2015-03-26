@@ -12,10 +12,7 @@ urls = doc.xpath(xrequest).map{|link| link.value}.uniq
 DB=Sequel.connect(:adapter=>'mysql2', :user=>'root', :host=>'localhost', :database=>'test')
 
 DB.run('drop table if exists urls')
-DB.create_table :urls do
-	primary_key :id
-	String :url
-end
+
 
 class Url < Sequel::Model
 end

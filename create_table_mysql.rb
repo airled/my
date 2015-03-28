@@ -7,11 +7,11 @@ puts 'Enter the name of the table'
 tabname=gets.chomp
  
 #creating an array of the column names
-puts 'Enter the names of the columns (enter "-h" to stop)'
+puts 'Enter the names of the columns (enter "-s" to stop)'
 colnames=[]
 loop do
   name=gets.chomp
-  break if name=='-h'
+  break if name=='-s'
   colnames.push name
 end
  

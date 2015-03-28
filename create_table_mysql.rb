@@ -16,12 +16,12 @@ loop do
 end
  
 #creating value aggregating array
-puts 'Enter the row values separated with "," (enter "-h" to stop)'
+puts 'Enter the row values separated with "," (enter "-s" to stop)'
 aggrarr=[]
 loop do
   arr=[]
   val=gets.chomp
-  break if val=='-h'
+  break if val=='-s'
   arr=val.split(',')
   aggrarr.push arr
 end

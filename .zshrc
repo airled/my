@@ -13,7 +13,7 @@ reset="%{$reset_color%}"
 #promptinit
 #prompt adam1
 
-RPS1="${white}[%n@%m]"
+RPS1="${blue}[%n@%m]${reset}"
 
 if [[ $EUID == 0 ]]; then
 PS1="${red}[%~] # ";

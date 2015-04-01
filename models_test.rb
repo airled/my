@@ -49,10 +49,9 @@ Album.create(:artist_id=>4,:name=>'Twentythree')
 Album.create(:artist_id=>4,:name=>'Interloper')
 Album.create(:artist_id=>5,:name=>'Powerswitch')
 Album.create(:artist_id=>5,:name=>'Hybridcore')
-Album.create(:name=>'Dreams Of A Cryotank')
-
+bla=Album.create(:name=>'Dreams Of A Cryotank')
 artist=Artist[:name=>'Covenant']
-artist.add_album(:name=>'Dreams Of A Cryotank')
+artist.add_album(bla)
 =begin
 album=Album.new(:name=>'OLOLO')
 Artist.create(:name=>'2ch')

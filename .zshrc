@@ -1,26 +1,22 @@
 # Set up the prompt
 
 autoload -U colors && colors
-
 for color in red green yellow blue magenta cyan black white; do
-    eval $color='%{$fg_no_bold[${color}]%}'
-    #eval ${color}_bold='%{$fg_bold[${color}]%}'
+  eval $color='%{$fg_no_bold[${color}]%}'
+  #eval ${color}_bold='%{$fg_bold[${color}]%}'
 done
-
 reset="%{$reset_color%}"
 
-#autoload -Uz promptinit
+#autoload -U promptinit
 #promptinit
-#prompt adam1
 
 RPS1="${blue}[%n@%m]${reset}"
 
 if [[ $EUID == 0 ]]; then
-PS1="${red}[%~] # ";
+  PS1="${red}[%~] # ";
 else
-PS1="${green}[%~] > ";
+  PS1="${green}[%~] > ";
 fi
-
 PROMPT=$PS1
 setopt histignorealldups sharehistory
 
@@ -58,3 +54,4 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 alias ls='ls -l --color=auto --group-directories-first'
+alias cls='clear'

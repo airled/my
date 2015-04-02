@@ -1,0 +1,22 @@
+[global_config]
+  suppress_multiple_term_dialog = True
+[keybindings]
+[profiles]
+  [[default]]
+    use_system_font = False
+    font = Mono 15
+    background_color = "#020033"
+    foreground_color = "#ffffff"
+    cursor_blink = False
+    icon_bell = False
+    scroll_on_output = False
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+      size = 1000, 900
+[plugins]

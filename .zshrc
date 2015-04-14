@@ -12,12 +12,12 @@ reset="%{$reset_color%}"
 #autoload -U promptinit
 #promptinit
 
-RPS1='$(git_super_status)${blue}[%n@%m]${reset}'
+RPS1='$(git_super_status)${reset}${blue}[%n@%m]${reset}'
 
 if [[ $EUID == 0 ]]; then
-  PS1="${red}[%~] # ";
+  PS1="${red}[%~] # ${reset}";
 else
-  PS1="${green}[%~] > ";
+  PS1="${green}[%~] > ${reset}";
 fi
 PROMPT=$PS1
 setopt histignorealldups sharehistory

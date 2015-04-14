@@ -1,3 +1,5 @@
+source /home/air/zsh-git-prompt/zshrc.sh
+
 # Set up the prompt
 
 autoload -U colors && colors
@@ -10,7 +12,7 @@ reset="%{$reset_color%}"
 #autoload -U promptinit
 #promptinit
 
-RPS1="${blue}[%n@%m]${reset}"
+RPS1='$(git_super_status)${blue}[%n@%m]${reset}'
 
 if [[ $EUID == 0 ]]; then
   PS1="${red}[%~] # ";
@@ -55,3 +57,4 @@ eval "$(rbenv init -)"
 
 alias ls='ls -l --color=auto --group-directories-first'
 alias cls='clear'
+alias la='ls -a --color=auto --group-directories-first'

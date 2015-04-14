@@ -1,4 +1,4 @@
-source /home/air/zsh-git-prompt/zshrc.sh
+source ~/zsh-git-prompt/zshrc.sh
 
 # Set up the prompt
 

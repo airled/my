@@ -52,6 +52,9 @@ Album.create(:artist_id=>5,:name=>'Hybridcore')
 bla=Album.create(:name=>'Dreams Of A Cryotank')
 artist=Artist[:name=>'Covenant']
 artist.add_album(bla)
+puts "Fetched #{Album.last.id} albums"
+puts "Fetched #{Artist.last.id} artists"
+puts "#{Album.count}:#{Album.count}:#{Album.count}"
 =begin
 album=Album.new(:name=>'OLOLO')
 Artist.create(:name=>'2ch')

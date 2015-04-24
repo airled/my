@@ -3,7 +3,7 @@ require 'open-uri'
 require 'curb'
 
 def infile(html,file)
-  File.open(file,'w') { |x| x.puts html }
+  File.open("#{Dir.home}/#{file}",'w') { |x| x.puts html }
 end
   
 html_noko = Nokogiri::HTML(open('http://ya.ru'))

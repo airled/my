@@ -61,7 +61,7 @@ task :deploy => :environment do
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
     invoke :'git:clone'
-    invoke :'deploy:link_shared_paths'
+#    invoke :'deploy:link_shared_paths'
 echo_cmd('bundle install')
 #    invoke :'bundle:install'
     invoke :'rails:db_migrate'

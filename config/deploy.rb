@@ -64,8 +64,8 @@ task :deploy => :environment do
 #    invoke :'deploy:link_shared_paths'
 echo_cmd('bundle install')
 #    invoke :'bundle:install'
-    invoke :'rails:db_migrate'
-    invoke :'rails:assets_precompile'
+#    invoke :'rails:db_migrate'
+#    invoke :'rails:assets_precompile'
     invoke :'deploy:cleanup'
 
     to :launch do
@@ -74,11 +74,3 @@ echo_cmd('bundle install')
     end
   end
 end
-
-# For help in making your deploy script, see the Mina documentation:
-#
-#  - http://nadarei.co/mina
-#  - http://nadarei.co/mina/tasks
-#  - http://nadarei.co/mina/settings
-#  - http://nadarei.co/mina/helpers
-

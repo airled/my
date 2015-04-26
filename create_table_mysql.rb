@@ -42,6 +42,6 @@ dataset=database[tabname.to_sym]
  
 #filling the values
 a = aggrarr.map do |row|
-  colnames.zip(row).to_h
+  Hash[colnames.zip(row)]
 end
 dataset.multi_insert(a)

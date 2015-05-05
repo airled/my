@@ -1,4 +1,4 @@
-source ~/zsh-git-prompt/zshrc.sh
+source /home/air/zsh-git-prompt/zshrc.sh
 
 # Set up the prompt
 
@@ -9,9 +9,6 @@ for color in red green yellow blue magenta cyan black white; do
 done
 reset="%{$reset_color%}"
 
-#autoload -U promptinit
-#promptinit
-
 RPS1='$(git_super_status)${reset}${blue}[%n@%m]${reset}'
 
 if [[ $EUID == 0 ]]; then
@@ -20,7 +17,9 @@ else
   PS1="${green}[%~] > ${reset}";
 fi
 PROMPT=$PS1
+
 setopt histignorealldups sharehistory
+#setopt autocd
 
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
@@ -55,6 +54,12 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-alias ls='ls -l --color=auto --group-directories-first'
+alias upd='sudo apt-get update'
+alias upg='sudo apt-get upgrade'
 alias cls='clear'
+alias ls='ls -l --color=auto --group-directories-first'
 alias la='ls -a --color=auto --group-directories-first'
+alias bi='bundle install'
+alias be='bundle exec'
+alias gp='git add . && git commit && git push'
+alias mgo='sudo service mysql start'

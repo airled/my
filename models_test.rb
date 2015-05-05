@@ -1,6 +1,6 @@
 require 'sequel'
 require 'mysql2'
-require 'pry'
+#require 'pry'
 require 'logger'
 
 database=Sequel.connect(:adapter=>'mysql2', :host=>'localhost', :user=>'root', :database=>'test')
@@ -51,10 +51,13 @@ Album.create(:artist_id=>5,:name=>'Powerswitch')
 Album.create(:artist_id=>5,:name=>'Hybridcore')
 bla=Album.create(:name=>'Dreams Of A Cryotank')
 artist=Artist[:name=>'Covenant']
-artist.add_album(bla)
-puts "Fetched #{Album.last.id} albums"
-puts "Fetched #{Artist.last.id} artists"
-puts "#{Album.count}:#{Album.count}:#{Album.count}"
+dataset = database[:albums]
+a = Album.all
+a.each { |x| puts a.select(:name).all }
+#artist.add_album(bla)
+#puts "Fetched #{Album.last.id} albums"
+#puts "Fetched #{Artist.last.id} artists"
+#puts "#{Album.count}:#{Album.count}:#{Album.count}"
 =begin
 album=Album.new(:name=>'OLOLO')
 Artist.create(:name=>'2ch')

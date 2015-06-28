@@ -55,11 +55,11 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 alias upd='sudo apt-get update'
-alias upg='sudo apt-get upgrade'
+alias upg='sudo apt-get dist-upgrade'
 alias cls='clear'
 alias ls='ls -l --color=auto --group-directories-first'
 alias la='ls -a --color=auto --group-directories-first'
 alias bi='bundle install'
 alias be='bundle exec'
-alias gp='git add . && git commit && git push'
+alias gp='git add -A && git commit && git push'
 alias mgo='sudo service mysql start'

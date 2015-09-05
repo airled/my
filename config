@@ -1,15 +1,18 @@
 [global_config]
+  window_state = maximise
   suppress_multiple_term_dialog = True
 [keybindings]
 [profiles]
   [[default]]
     use_system_font = False
+    background_image = None
+    foreground_color = "#ffffff"
+    scroll_on_output = False
+    icon_bell = False
     font = Mono 15
     background_color = "#020033"
-    foreground_color = "#ffffff"
     cursor_blink = False
-    icon_bell = False
-    scroll_on_output = False
+    scrollback_infinite = True
 [layouts]
   [[default]]
     [[[child1]]]
@@ -18,5 +21,5 @@
     [[[window0]]]
       type = Window
       parent = ""
-      size = 1000, 900
+      size = 1100, 800
 [plugins]

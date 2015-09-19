@@ -1,7 +1,5 @@
 source /home/air/zsh-git-prompt/zshrc.sh
 
-# Set up the prompt
-
 autoload -U colors && colors
 for color in red green yellow blue magenta cyan black white; do
   eval $color='%{$fg_no_bold[${color}]%}'
@@ -19,17 +17,12 @@ fi
 PROMPT=$PS1
 
 setopt histignorealldups sharehistory
-#setopt autocd
-
-# Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
-SAVEHIST=1000
+SAVEHIST=0
 HISTFILE=~/.zsh_history
 
-# Use modern completion system
 autoload -Uz compinit
 compinit
 
@@ -47,24 +40,23 @@ zstyle ':completion:*' menu select=long
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
-
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 
 alias upd='sudo apt-get update'
 alias upg='sudo apt-get dist-upgrade'
 alias cls='clear'
-alias ls='ls -l --color=auto --group-directories-first'
 alias la='ls -a --color=auto --group-directories-first'
 alias bi='bundle install'
 alias be='bundle exec'
-alias gp='git add -A && git commit && git push'
 alias mgo='sudo service mysql start'
-alias apti='sudo apt-get install'
+alias mst='sudo service mysql stop'
+alias gp='git add -A && git commit && git push'
 alias pl='git pull'
 alias st='git status'
-alias br='git branch'
 alias ch='git checkout'
+alias br='git branch'
+alias di='git diff'
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"

@@ -46,7 +46,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 alias upd='sudo apt-get update'
 alias upg='sudo apt-get dist-upgrade'
 alias cls='clear'
-alias la='ls -a --color=auto --group-directories-first'
+alias la='ls -la --color=auto --group-directories-first'
 alias bi='bundle install'
 alias be='bundle exec'
 alias mgo='sudo service mysql start'
@@ -57,6 +57,7 @@ alias st='git status'
 alias ch='git checkout'
 alias br='git branch'
 alias di='git diff'
+alias ru='rackup'
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

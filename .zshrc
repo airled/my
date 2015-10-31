@@ -1,4 +1,5 @@
 source /home/air/zsh-git-prompt/zshrc.sh
+GIT_PROMPT_EXECUTABLE="haskell"
 
 autoload -U colors && colors
 for color in red green yellow blue magenta cyan black white; do
@@ -58,6 +59,7 @@ alias ch='git checkout'
 alias br='git branch'
 alias di='git diff'
 alias ru='rackup'
+alias s='ssh s'
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

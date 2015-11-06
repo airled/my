@@ -6,9 +6,11 @@
   [[default]]
     use_system_font = False
     background_image = None
+    cursor_color = "#ffffff"
     foreground_color = "#ffffff"
     scroll_on_output = False
     icon_bell = False
+    show_titlebar = False
     font = Mono 15
     background_color = "#020033"
     cursor_blink = False
@@ -21,5 +23,5 @@
     [[[window0]]]
       type = Window
       parent = ""
-      size = 1100, 800
+      size = 1000, 900
 [plugins]

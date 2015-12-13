@@ -61,7 +61,9 @@ alias st='git status'
 alias ch='git checkout'
 alias br='git branch'
 alias di='git diff'
+alias ru='rackup'
 alias s='ssh s'
+alias cb='crystal build'
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

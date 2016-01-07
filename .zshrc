@@ -21,7 +21,7 @@ setopt histignorealldups sharehistory
 bindkey -e
 
 HISTSIZE=1000
-SAVEHIST=0
+SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
 autoload -Uz compinit

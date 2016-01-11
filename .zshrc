@@ -1,14 +1,13 @@
 source /home/air/zsh-git-prompt/zshrc.sh
-GIT_PROMPT_EXECUTABLE="haskell"
+#GIT_PROMPT_EXECUTABLE="haskell"
 
 autoload -U colors && colors
 for color in red green yellow blue magenta cyan black white; do
   eval $color='%{$fg_no_bold[${color}]%}'
-  #eval ${color}_bold='%{$fg_bold[${color}]%}'
 done
 reset="%{$reset_color%}"
 
-RPS1='$(git_super_status)${reset}${blue}[%n@%m]${reset}'
+RPS1='$(git_super_status)${blue}[%n@%m]${reset}'
 
 if [[ $EUID == 0 ]]; then
   PS1="${red}[%~] # ${reset}";

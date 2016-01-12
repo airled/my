@@ -1,24 +1,26 @@
 #!/bin/bash
 
+red='\033[0;31m'
+green='\033[0;32m'
+reset='\033[0m'
+
 command -v git >/dev/null 2>&1 || { echo "Install git and try again." >&2; exit 1; }
-echo "Installing zsh..." &&
+echo -e "${red}Installing zsh...${reset}" &&
 sudo apt-get -y install zsh &&
-echo "Installing rbenv..." &&
+echo -e "${red}Installing rbenv...${reset}" &&
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv &&
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build &&
-echo "Installing git-prompt..." &&
-git clone https://github.com/olivierverdier/zsh-git-prompt.git ~/zsh-git-prompt &&
+echo -e "${red}Installing git-prompt...${reset}" &&
+git clone https://github.com/olivierverdier/zsh-git-prompt.git ~/.zsh-git-prompt &&
 cp ./.zshrc ~/.zshrc &&
 if [[ x$DISPLAY != x ]]; then
-  echo "GUI found. Installing terminator..." &&
+  echo -e "${red}GUI found. Installing Terminator...${reset}" &&
   sudo apt-get -y install terminator &&
   mkdir ~/.config/terminator &&
   cp ./config ~/.config/terminator/config
 else
-  echo "Seems like there is no GUI. Installing Tmux..." &&
-  sudo apt-get -y install tmux &&
-  cp ./.tmux.conf ~/.tmux.conf &&
-  echo "Installing mouse in console for you..." &&
-  sudo apt-get -y install gpm
+  echo -e "${red}Seems like there is no GUI. Installing tmux and mouse console support (gpm)...${reset}" &&
+  sudo apt-get -y install tmux gpm &&
+  cp ./.tmux.conf ~/.tmux.conf
 fi
-echo "Workspace has been setup. Now change your default shell to zsh."
+echo -e "${green}Workspace has been setup. Now change your default shell to zsh.${reset}"

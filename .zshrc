@@ -1,4 +1,4 @@
-source /home/air/zsh-git-prompt/zshrc.sh
+source ~/.zsh-git-prompt/zshrc.sh
 #GIT_PROMPT_EXECUTABLE="haskell"
 
 autoload -U colors && colors

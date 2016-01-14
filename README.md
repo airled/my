@@ -7,4 +7,4 @@ It will install:
 - terminator (+ config) (if GUI)
 - tmux (+ config) and mouse support (if no GUI)
 
-Then change your default shell in `/etc/passwd`
+Then change your default shell in `/etc/passwd` to zsh.

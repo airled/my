@@ -1,6 +1,6 @@
 Just clone it and do `./space`
 
-It will installs:
+It will install:
 - zsh with (+ config)
 - rbenv with ruby-builder
 - zsh-git-prompt (git status in your zsh-prompt)

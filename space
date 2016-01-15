@@ -5,6 +5,7 @@ green='\033[0;32m'
 reset='\033[0m'
 
 command -v git >/dev/null 2>&1 || { echo "Install git and try again." >&2; exit 1; }
+sudo apt-get update
 echo -e "${red}Installing zsh...${reset}" &&
 sudo apt-get -y install zsh &&
 echo -e "${red}Installing rbenv...${reset}" &&
@@ -18,6 +19,11 @@ if [[ x$DISPLAY != x ]]; then
   sudo apt-get -y install terminator &&
   mkdir ~/.config/terminator &&
   cp ./config ~/.config/terminator/config
+  echo -e "${red}Installing Sublime Text 3 from PPA...${reset}" &&
+  sudo add-apt-repository ppa:webupd8team/sublime-text-3 &&
+  sudo apt-get install -y sublime-text-installer &&
+  cp ./Preferences.sublime-settings ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings &&
+  cp ./Ruby.sublime-settings ~/.config/sublime-text-3/Packages/User/Ruby.sublime-settings
 else
   echo -e "${red}Seems like there is no GUI. Installing tmux and mouse console support (gpm)...${reset}" &&
   sudo apt-get -y install tmux gpm &&

@@ -21,6 +21,7 @@ if [[ x$DISPLAY != x ]]; then
   cp ./config ~/.config/terminator/config
   echo -e "${red}Installing Sublime Text 3 from PPA...${reset}" &&
   sudo add-apt-repository ppa:webupd8team/sublime-text-3 &&
+  sudo apt-get update &&
   sudo apt-get install -y sublime-text-installer &&
   cp ./Preferences.sublime-settings ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings &&
   cp ./Ruby.sublime-settings ~/.config/sublime-text-3/Packages/User/Ruby.sublime-settings

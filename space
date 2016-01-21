@@ -28,7 +28,9 @@ if [[ x$DISPLAY != x ]]; then
   mkdir ~/.config/sublime-text-3/Packages &&
   mkdir ~/.config/sublime-text-3/Packages/User &&
   cp ./Preferences.sublime-settings ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings &&
+  cp ./Ruby.sublime-settings ~/.config/sublime-text-3/Packages/User/JavaScript.sublime-settings
   cp ./Ruby.sublime-settings ~/.config/sublime-text-3/Packages/User/Ruby.sublime-settings
+  cp ./Ruby.sublime-settings ~/.config/sublime-text-3/Packages/User/YAML.sublime-settings
 else
   echo -e "${red}Seems like there is no GUI. Installing tmux and mouse console support (gpm)...${reset}" &&
   sudo apt-get -y install tmux gpm &&

@@ -7,12 +7,7 @@ for color in red green yellow blue magenta cyan black white; do
 done
 reset="%{$reset_color%}"
 
-function rubyver(){
-  result=$(rbenv version)
-  echo "$result[1,5]"
-}
-
-RPS1='$(git_super_status)${yellow}[$(rubyver)]${blue}[%n@%m]${reset}'
+RPS1='$(git_super_status)${blue}[%n@%m]${reset}'
 
 if [[ $EUID == 0 ]]; then
   PS1="${red}[%~] # ${reset}";

@@ -17,7 +17,7 @@ cp ./.zshrc ~/.zshrc &&
 if [[ x$DISPLAY != x ]]; then
   echo -e "${red}GUI found. Installing Terminator...${reset}" &&
   sudo apt-get -y install terminator &&
-  mkdir ~/.config/terminator &&
+  mkdir -p ~/.config/terminator &&
   cp ./config ~/.config/terminator/config
   echo -e "${red}Installing Sublime Text 3 from PPA...${reset}" &&
   sudo apt-get install -y software-properties-common &&

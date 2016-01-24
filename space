@@ -25,10 +25,7 @@ if [[ x$DISPLAY != x ]]; then
   sudo apt-get update &&
   sudo apt-get install -y sublime-text-installer &&
   mkdir -p ~/.config/sublime-text-3/Packages/User &&
-  cp ./Preferences.sublime-settings ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings &&
-  cp ./Ruby.sublime-settings ~/.config/sublime-text-3/Packages/User/JavaScript.sublime-settings
-  cp ./Ruby.sublime-settings ~/.config/sublime-text-3/Packages/User/Ruby.sublime-settings
-  cp ./Ruby.sublime-settings ~/.config/sublime-text-3/Packages/User/YAML.sublime-settings
+  cp ./{Preferences.sublime-settings,JavaScript.sublime-settings,Ruby.sublime-settings,YAML.sublime-settings} ~/.config/sublime-text-3/Packages/User/
 else
   echo -e "${red}Seems like there is no GUI. Installing tmux and mouse console support (gpm)...${reset}" &&
   sudo apt-get -y install tmux gpm &&

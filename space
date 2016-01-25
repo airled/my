@@ -6,14 +6,33 @@ reset='\033[0m'
 
 command -v git >/dev/null 2>&1 || { echo "Install git and try again." >&2; exit 1; }
 sudo apt-get update &&
-echo -e "${red}Installing zsh...${reset}" &&
+
+echo -e "${red}Installing zsh...${reset}"
 sudo apt-get -y install zsh &&
-echo -e "${red}Installing rbenv...${reset}" &&
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv &&
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build &&
-echo -e "${red}Installing git-prompt...${reset}" &&
-git clone https://github.com/olivierverdier/zsh-git-prompt.git ~/.zsh-git-prompt &&
 cp ./.zshrc ~/.zshrc &&
+
+echo -e "${red}Installing rbenv...${reset}"
+if [[ -d ~/.rbenv ]]; then
+  echo -e "${green}rbenv exists. Updating...${reset}" &&
+  ( cd ~/.rbenv && git pull origin master )
+  if [[ -d ~/.rbenv/plugins/ruby-build ]]; then
+    ( cd ~/.rbenv/plugins/ruby-build && git pull origin master )
+  else
+    git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+  fi
+else
+  git clone https://github.com/rbenv/rbenv.git ~/.rbenv &&
+  git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+fi
+
+echo -e "${red}Installing zsh-git-prompt...${reset}"
+if [[ -d ~/.zsh-git-prompt ]]; then
+  echo -e "${green}zsh-git-prompt found. Updating...${reset}"
+  ( cd ~/.zsh-git-prompt && git pull origin master )
+else
+  git clone https://github.com/olivierverdier/zsh-git-prompt.git ~/.zsh-git-prompt
+fi
+
 if [[ x$DISPLAY != x ]]; then
   echo -e "${red}GUI found. Installing Terminator...${reset}" &&
   sudo apt-get -y install terminator &&
@@ -31,4 +50,5 @@ else
   sudo apt-get -y install tmux gpm &&
   cp ./.tmux.conf ~/.tmux.conf
 fi
+
 echo -e "${green}Workspace has been setup. Now change your default shell to zsh.${reset}"

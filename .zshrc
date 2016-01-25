@@ -65,6 +65,7 @@ alias gcl='git checkout -f && git clean -df'
 alias ru='rackup'
 alias s='ssh s'
 alias cb='crystal build'
+alias cr='crystal run'
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

@@ -66,6 +66,12 @@ alias ru='rackup'
 alias s='ssh s'
 alias cb='crystal build'
 alias cr='crystal run'
+alias apti='sudo apt-get install'
+alias net='sudo netstat -aptun4'
+alias smc='sudo mc'
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+#export PATH="$HOME/.crenv/bin:$PATH"
+#eval "$(crenv init -)"

@@ -69,6 +69,7 @@ alias cr='crystal run'
 alias apti='sudo apt-get install'
 alias net='sudo netstat -aptun4'
 alias smc='sudo mc'
+alias duh='du -hs .* *'
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

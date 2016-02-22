@@ -4,40 +4,46 @@ red='\033[0;31m'
 green='\033[0;32m'
 reset='\033[0m'
 
-command -v git >/dev/null 2>&1 || { echo "Install git and try again." >&2; exit 1; }
-sudo apt-get update &&
+function inst_zsh() {
+  echo -e "${red}Installing zsh...${reset}" &&
+  sudo apt-get -y install zsh &&
+  cp ./.zshrc ~/.zshrc
+}
 
-echo -e "${red}Installing zsh...${reset}"
-sudo apt-get -y install zsh &&
-cp ./.zshrc ~/.zshrc &&
-
-echo -e "${red}Installing rbenv...${reset}"
-if [[ -d ~/.rbenv ]]; then
-  echo -e "${green}rbenv exists. Updating...${reset}" &&
-  ( cd ~/.rbenv && git pull origin master )
-  if [[ -d ~/.rbenv/plugins/ruby-build ]]; then
-    ( cd ~/.rbenv/plugins/ruby-build && git pull origin master )
+function inst_rbenv() {
+  echo -e "${red}Installing rbenv...${reset}" &&
+  if [[ -d ~/.rbenv ]]; then
+    echo -e "${green}rbenv exists. Updating...${reset}" &&
+    ( cd ~/.rbenv && git pull origin master ) &&
+    if [[ -d ~/.rbenv/plugins/ruby-build ]]; then
+      ( cd ~/.rbenv/plugins/ruby-build && git pull origin master )
+    else
+      git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+    fi
   else
+    git clone https://github.com/rbenv/rbenv.git ~/.rbenv &&
     git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
   fi
-else
-  git clone https://github.com/rbenv/rbenv.git ~/.rbenv &&
-  git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-fi
+}
 
-echo -e "${red}Installing zsh-git-prompt...${reset}"
-if [[ -d ~/.zsh-git-prompt ]]; then
-  echo -e "${green}zsh-git-prompt found. Updating...${reset}"
-  ( cd ~/.zsh-git-prompt && git pull origin master )
-else
-  git clone https://github.com/olivierverdier/zsh-git-prompt.git ~/.zsh-git-prompt
-fi
+function inst_gitprompt() {
+  echo -e "${red}Installing zsh-git-prompt...${reset}" &&
+  if [[ -d ~/.zsh-git-prompt ]]; then
+    echo -e "${green}zsh-git-prompt found. Updating...${reset}" &&
+    ( cd ~/.zsh-git-prompt && git pull origin master )
+  else
+    git clone https://github.com/olivierverdier/zsh-git-prompt.git ~/.zsh-git-prompt
+  fi
+}
 
-if [[ x$DISPLAY != x ]]; then
+function inst_terminator() {
   echo -e "${red}GUI found. Installing Terminator...${reset}" &&
   sudo apt-get -y install terminator &&
   mkdir -p ~/.config/terminator &&
-  cp ./config ~/.config/terminator/config &&
+  cp ./config ~/.config/terminator/config
+}
+
+function inst_sublime() {
   echo -e "${red}Installing Sublime Text 3 from PPA...${reset}" &&
   sudo apt-get install -y software-properties-common &&
   sudo add-apt-repository ppa:webupd8team/sublime-text-3 &&
@@ -45,10 +51,54 @@ if [[ x$DISPLAY != x ]]; then
   sudo apt-get install -y sublime-text-installer &&
   mkdir -p ~/.config/sublime-text-3/Packages/User &&
   cp ./{Preferences.sublime-settings,JavaScript.sublime-settings,Ruby.sublime-settings,YAML.sublime-settings} ~/.config/sublime-text-3/Packages/User/
-else
+}
+
+function inst_tmux() {
   echo -e "${red}Seems like there is no GUI. Installing tmux and mouse console support (gpm)...${reset}" &&
   sudo apt-get -y install tmux gpm &&
   cp ./.tmux.conf ~/.tmux.conf
-fi
+}
 
-echo -e "${green}Workspace has been setup. Now change your default shell to zsh.${reset}"
+function inst_done() {
+  echo -e "${green}Workspace has been setup. Now change your default shell to zsh.${reset}"
+}
+
+# MAIN SCRIPT
+
+echo 'Sudoer? y/n'
+read sudoer
+
+if [[ $sudoer == 'y' ]]; then
+
+  sudo apt-get update &&
+  inst_zsh &&
+  inst_rbenv &&
+  inst_gitprompt &&
+  if [[ x$DISPLAY != x ]]; then
+    inst_terminator &&
+    inst_sublime &&
+    inst_done
+  else
+    inst_tmux &&
+    inst_done
+  fi
+
+elif [[ $sudoer == 'n' ]]; then
+
+  cp ./.zshrc ~/.zshrc &&
+  inst_rbenv &&
+  inst_gitprompt &&
+  if [[ x$DISPLAY != x ]]; then
+    mkdir -p ~/.config/terminator &&
+    cp ./config ~/.config/terminator/config &&
+    mkdir -p ~/.config/sublime-text-3/Packages/User &&
+    cp ./{Preferences.sublime-settings,JavaScript.sublime-settings,Ruby.sublime-settings,YAML.sublime-settings} ~/.config/sublime-text-3/Packages/User/ &&
+    inst_done
+  else
+    cp ./.tmux.conf ~/.tmux.conf &&
+    inst_done
+  fi
+
+else
+  echo 'Use "y" or "n"'
+fi

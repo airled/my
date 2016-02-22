@@ -10,6 +10,13 @@ function inst_zsh() {
   cp ./.zshrc ~/.zshrc
 }
 
+function inst_mc() {
+  echo -e "${red}Installing mc...${reset}" &&
+  sudo apt-get -y install mc &&
+  mkdir -p ~/.config/mc &&
+  cp ./ini ~/.config/mc/ini
+}
+
 function inst_rbenv() {
   echo -e "${red}Installing rbenv...${reset}" &&
   if [[ -d ~/.rbenv ]]; then
@@ -72,6 +79,7 @@ if [[ $sudoer == 'y' ]]; then
 
   sudo apt-get update &&
   inst_zsh &&
+  inst_mc &&
   inst_rbenv &&
   inst_gitprompt &&
   if [[ x$DISPLAY != x ]]; then
@@ -86,6 +94,8 @@ if [[ $sudoer == 'y' ]]; then
 elif [[ $sudoer == 'n' ]]; then
 
   cp ./.zshrc ~/.zshrc &&
+  mkdir -p ~/.config/mc &&
+  cp ./ini ~/.config/mc/ini &&
   inst_rbenv &&
   inst_gitprompt &&
   if [[ x$DISPLAY != x ]]; then

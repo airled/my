@@ -1,6 +1,7 @@
 The script has been done for deb-based systems with `apt`.
 Just gitclone it and do `./space`. If you are sudoer, it will install:
 - zsh (+ config)
+- mc (+ config)
 - [rbenv](https://github.com/rbenv/rbenv) with [ruby-build](https://github.com/rbenv/ruby-build)
 - [zsh-git-prompt](https://github.com/olivierverdier/zsh-git-prompt) (smart git status in your zsh-prompt)
 - terminator (+ config) / if GUI

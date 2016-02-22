@@ -1,5 +1,5 @@
 The script has been done for deb-based systems with `apt`.
-Just gitclone it and do `./space`. If you are sudoer, it will install:
+Just gitclone it and do `./space`. If you are a sudoer, it will install:
 - zsh (+ config)
 - mc (+ config)
 - [rbenv](https://github.com/rbenv/rbenv) with [ruby-build](https://github.com/rbenv/ruby-build)
@@ -10,4 +10,4 @@ Just gitclone it and do `./space`. If you are sudoer, it will install:
 
 Then you should change your default shell in `/etc/passwd` to zsh.
 
-If you are not sudoer, the script will just copy configs and install github-based apps (cause it doesn't need to be sudoer). 
+If you are not a sudoer, the script will just copy the configs and install github-based apps. 

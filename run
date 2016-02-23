@@ -4,20 +4,20 @@ red='\033[0;31m'
 green='\033[0;32m'
 reset='\033[0m'
 
-function inst_zsh() {
+function install_zsh() {
   echo -e "${red}Installing zsh...${reset}" &&
   sudo apt-get -y install zsh &&
   cp ./.zshrc ~/.zshrc
 }
 
-function inst_mc() {
+function install_mc() {
   echo -e "${red}Installing mc...${reset}" &&
   sudo apt-get -y install mc &&
   mkdir -p ~/.config/mc &&
   cp ./ini ~/.config/mc/ini
 }
 
-function inst_rbenv() {
+function install_rbenv() {
   echo -e "${red}Installing rbenv...${reset}" &&
   if [[ -d ~/.rbenv ]]; then
     echo -e "${green}rbenv exists. Updating...${reset}" &&
@@ -33,7 +33,7 @@ function inst_rbenv() {
   fi
 }
 
-function inst_gitprompt() {
+function install_gitprompt() {
   echo -e "${red}Installing zsh-git-prompt...${reset}" &&
   if [[ -d ~/.zsh-git-prompt ]]; then
     echo -e "${green}zsh-git-prompt found. Updating...${reset}" &&
@@ -43,14 +43,14 @@ function inst_gitprompt() {
   fi
 }
 
-function inst_terminator() {
+function install_terminator() {
   echo -e "${red}GUI found. Installing Terminator...${reset}" &&
   sudo apt-get -y install terminator &&
   mkdir -p ~/.config/terminator &&
   cp ./config ~/.config/terminator/config
 }
 
-function inst_sublime() {
+function install_sublime() {
   echo -e "${red}Installing Sublime Text 3 from PPA...${reset}" &&
   sudo apt-get install -y software-properties-common &&
   sudo add-apt-repository ppa:webupd8team/sublime-text-3 &&
@@ -60,13 +60,13 @@ function inst_sublime() {
   cp ./{Preferences.sublime-settings,JavaScript.sublime-settings,Ruby.sublime-settings,YAML.sublime-settings} ~/.config/sublime-text-3/Packages/User/
 }
 
-function inst_tmux() {
-  echo -e "${red}Seems like there is no GUI. Installing tmux and mouse console support (gpm)...${reset}" &&
-  sudo apt-get -y install tmux gpm &&
+function install_tmux() {
+  echo -e "${red}Seems like there is no GUI. Installing tmux...${reset}" &&
+  sudo apt-get -y install tmux &&
   cp ./.tmux.conf ~/.tmux.conf
 }
 
-function inst_done() {
+function install_done() {
   echo -e "${green}Workspace has been setup. Now change your default shell to zsh.${reset}"
 }
 
@@ -78,17 +78,17 @@ read sudoer
 if [[ $sudoer == 'y' ]]; then
 
   sudo apt-get update &&
-  inst_zsh &&
-  inst_mc &&
-  inst_rbenv &&
-  inst_gitprompt &&
+  install_zsh &&
+  install_mc &&
+  install_rbenv &&
+  install_gitprompt &&
   if [[ x$DISPLAY != x ]]; then
-    inst_terminator &&
-    inst_sublime &&
-    inst_done
+    install_terminator &&
+    install_sublime &&
+    install_done
   else
-    inst_tmux &&
-    inst_done
+    install_tmux &&
+    install_done
   fi
 
 elif [[ $sudoer == 'n' ]]; then
@@ -96,17 +96,17 @@ elif [[ $sudoer == 'n' ]]; then
   cp ./.zshrc ~/.zshrc &&
   mkdir -p ~/.config/mc &&
   cp ./ini ~/.config/mc/ini &&
-  inst_rbenv &&
-  inst_gitprompt &&
+  install_rbenv &&
+  install_gitprompt &&
   if [[ x$DISPLAY != x ]]; then
     mkdir -p ~/.config/terminator &&
     cp ./config ~/.config/terminator/config &&
     mkdir -p ~/.config/sublime-text-3/Packages/User &&
     cp ./{Preferences.sublime-settings,JavaScript.sublime-settings,Ruby.sublime-settings,YAML.sublime-settings} ~/.config/sublime-text-3/Packages/User/ &&
-    inst_done
+    install_done
   else
     cp ./.tmux.conf ~/.tmux.conf &&
-    inst_done
+    install_done
   fi
 
 else

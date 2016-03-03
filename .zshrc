@@ -60,6 +60,7 @@ alias st='git status'
 alias ch='git checkout'
 alias br='git branch'
 alias di='git diff'
+alias di2='git diff HEAD^ HEAD'
 alias lg='git log'
 alias gcl='git checkout -f && git clean -df'
 alias ru='rackup'
@@ -70,6 +71,7 @@ alias apti='sudo apt-get install'
 alias ll='sudo netstat -lptn4'
 alias smc='sudo mc'
 alias duh='du -hs .*; du -hs *'
+alias tf='tail -f'
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

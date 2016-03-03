@@ -9,6 +9,4 @@ Just gitclone it and run `./run`. If you are a sudoer, it will install:
 - sublime text 3 (from webupd8team PPA) (+ several configs) / if GUI
 - tmux (+ config) / if no GUI
 
-Then you should change your default shell in `/etc/passwd` to zsh.
-
 If you are not a sudoer, the script will just copy the configs and install github-based apps. 

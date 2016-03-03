@@ -7,7 +7,8 @@ reset='\033[0m'
 function install_zsh() {
   echo -e "${red}Installing zsh...${reset}" &&
   sudo apt-get -y install zsh &&
-  cp ./.zshrc ~/.zshrc
+  cp ./.zshrc ~/.zshrc &&
+  chsh -s /bin/zsh
 }
 
 function install_vim() {
@@ -74,7 +75,7 @@ function install_tmux() {
 }
 
 function install_done() {
-  echo -e "${green}Workspace has been setup. Now change your default shell to zsh.${reset}"
+  echo -e "${green}Workspace has been setup."
 }
 
 # MAIN SCRIPT
@@ -117,6 +118,7 @@ elif [[ $sudoer == 'n' ]]; then
   else
     cp ./.tmux.conf ~/.tmux.conf &&
     install_done
+    echo -e "${green}. Ask root user to change your default shell to zsh."
   fi
 
 else

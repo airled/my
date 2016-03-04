@@ -14,7 +14,7 @@ function install_zsh() {
 function install_vim() {
   echo -e "${red}Installing vim...${reset}" &&
   sudo apt-get -y install vim &&
-  cp ./.vimrc ~/.vimrc
+  cp ./.vimrc ~/.vimrc &&
   cp ./.selected_editor ~/.selected_editor
 }
 

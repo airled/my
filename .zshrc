@@ -54,7 +54,7 @@ alias mst='sudo service mysql stop'
 alias gp='git add -A && git commit && git push'
 alias gc='git add -A && git commit'
 alias ga='git add -A'
-alias gam='git commit --amend'
+alias gam='git add -A && git commit --amend'
 alias pl='git pull'
 alias st='git status'
 alias ch='git checkout'
@@ -72,6 +72,7 @@ alias ll='sudo netstat -lptn4'
 alias smc='sudo mc'
 alias duh='du -hs .*; du -hs *'
 alias tf='tail -f'
+alias pa='ps -ef'
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

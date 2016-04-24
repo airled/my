@@ -11,7 +11,7 @@
     scroll_on_output = False
     icon_bell = False
     show_titlebar = False
-    font = Mono 15
+    font = Mono 14
     background_color = "#020033"
     cursor_blink = False
     scrollback_infinite = True

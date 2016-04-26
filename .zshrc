@@ -74,6 +74,8 @@ alias smc='sudo mc'
 alias duh='du -hs .*; du -hs *'
 alias tf='tail -f'
 alias pa='ps -ef'
+alias ngr='ngrok http'
+alias rs='rails s'
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

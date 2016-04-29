@@ -77,6 +77,8 @@ alias pa='ps -ef'
 alias ngr='ngrok http'
 alias rs='rails s'
 alias prs='RAILS_ENV=production rails s'
+alias prails='RAILS_ENV=production rails'
+alias trails='RAILS_ENV=test rails'
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

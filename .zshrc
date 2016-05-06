@@ -79,6 +79,8 @@ alias rs='rails s'
 alias prs='RAILS_ENV=production rails s'
 alias prails='RAILS_ENV=production rails'
 alias trails='RAILS_ENV=test rails'
+alias gst='git stash'
+alias gstp='git stash pop'
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

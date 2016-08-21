@@ -87,6 +87,8 @@ alias gst='git stash'
 alias gstp='git stash pop'
 alias dbm='bundle exec rake db:migrate'
 alias dbr='bundle exec rake db:rollback'
+alias kl='sudo kill -9'
+alias routes='bundle exec rake routes'
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

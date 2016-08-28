@@ -7,7 +7,7 @@ for color in red green yellow blue magenta cyan black white; do
 done
 reset="%{$reset_color%}"
 
-RPS1='$(git_super_status)${blue}[%n@%m]${reset}'
+RPS1='$(git_super_status)[${white}%D{%H:%M:%S}]${blue}[%n@%m]${reset}'
 
 if [[ $EUID == 0 ]]; then
   PS1="${red}[%~] # ${reset}";

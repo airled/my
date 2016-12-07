@@ -7,12 +7,13 @@ for color in red green yellow blue magenta cyan black white; do
 done
 reset="%{$reset_color%}"
 
+# RPS1='$(git_super_status)${blue}[%n@%m]${reset}'
 RPS1='$(git_super_status)[${white}%D{%H:%M:%S}]${blue}[%n@%m]${reset}'
 
 if [[ $EUID == 0 ]]; then
   PS1="${red}[%~] # ${reset}";
 else
-  PS1="${green}[%~] > ${reset}";
+  PS1="${cyan}[%~] > ${reset}";
 fi
 PROMPT=$PS1
 
@@ -82,18 +83,16 @@ alias bps='bundle exec padrino s'
 alias bpc='bundle exec padrino c'
 alias brs='bundle exec rails s'
 alias brc='bundle exec rails c'
-alias prs='RAILS_ENV=production rails s'
 alias prails='RAILS_ENV=production rails'
 alias trails='RAILS_ENV=test rails'
-alias gst='git stash'
-alias gstp='git stash pop'
 alias dbm='bundle exec rake db:migrate'
 alias dbr='bundle exec rake db:rollback'
+alias gst='git stash'
+alias gstp='git stash pop'
+alias psqla='psql -U air'
 alias kl='sudo kill -9'
 alias routes='bundle exec rake routes'
-
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-
-#export PATH="$HOME/.crenv/bin:$PATH"
-#eval "$(crenv init -)"
+export PATH="$HOME/.crenv/bin:$PATH"
+eval "$(crenv init -)"

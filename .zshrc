@@ -44,8 +44,7 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-alias upd='sudo apt-get update'
-alias upg='sudo apt-get dist-upgrade'
+alias upg='sudo apt-get update && sudo apt-get dist-upgrade'
 alias cls='clear'
 alias la='ls -la --color=auto --group-directories-first'
 alias bi='bundle install'

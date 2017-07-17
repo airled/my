@@ -49,6 +49,7 @@ alias cls='clear'
 alias la='ls -la --color=auto --group-directories-first'
 alias bi='bundle install'
 alias be='bundle exec'
+alias gi='gem install --no-ri --no-rdoc'
 alias mgo='sudo service mysql start'
 alias mst='sudo service mysql stop'
 alias gp='git add -A && git commit && git push'
@@ -88,6 +89,7 @@ alias gst='git stash'
 alias gstp='git stash pop'
 alias kl='sudo kill -9'
 alias routes='bundle exec rake routes'
+alias phs='mix phoenix.server'
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 # export PATH="$HOME/.crenv/bin:$PATH"

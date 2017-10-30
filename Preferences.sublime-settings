@@ -1,4 +1,21 @@
 {
+	"binary_file_patterns":
+	[
+		"*.jpg",
+		"*.jpeg",
+		"*.png",
+		"*.gif",
+		"*.ttf",
+		"*.tga",
+		"*.dds",
+		"*.ico",
+		"*.eot",
+		"*.pdf",
+		"*.swf",
+		"*.jar",
+		"*.zip",
+		"node_modules/**"
+	],
 	"color_scheme": "Packages/Color Scheme - Default/Blackboard.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
 	"font_size": 14,
@@ -8,5 +25,6 @@
 	[
 		80
 	],
-	"word_wrap": "true"
+	"word_wrap": "true",
+	"caret_extra_width": 1
 }

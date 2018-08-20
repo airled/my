@@ -14,7 +14,8 @@
 		"*.swf",
 		"*.jar",
 		"*.zip",
-		"node_modules/**"
+		"node_modules/**",
+		"public/packs/**"
 	],
 	"color_scheme": "Packages/Color Scheme - Default/Blackboard.tmTheme",
 	"ensure_newline_at_eof_on_save": true,

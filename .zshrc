@@ -85,7 +85,6 @@ alias dbm='bundle exec rake db:migrate'
 alias dbr='bundle exec rake db:rollback'
 alias gst='git stash'
 alias gstp='git stash pop'
-alias kl='sudo kill -9'
 alias routes='bundle exec rake routes'
 alias phs='mix phoenix.server'
 export PATH="$HOME/.rbenv/bin:$PATH"

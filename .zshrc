@@ -17,6 +17,7 @@ fi
 PROMPT=$PS1
 
 setopt histignorealldups sharehistory
+setopt autocd
 bindkey -e
 
 bindkey '^[[1;5D' backward-word

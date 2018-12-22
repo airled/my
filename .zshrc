@@ -91,3 +91,11 @@ eval "$(rbenv init -)"
 # eval "$(crenv init -)"
 # export PATH="$HOME/.exenv/bin:$PATH"
 # eval "$(exenv init -)"
+
+tarc() {
+  tar cvzf $1.tar.gz $1
+}
+
+tarx() {
+  tar xvzf $1
+}

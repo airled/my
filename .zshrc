@@ -52,7 +52,8 @@ alias cls='clear'
 alias la='ls -la --color=auto --group-directories-first'
 alias bi='bundle install'
 alias be='bundle exec'
-alias gi='gem install --no-ri --no-rdoc'
+# alias gi='gem install --no-ri --no-rdoc' ruby < 2.6.0
+alias gi='gem install --no-document' # ruby >= 2.6.0
 alias gc='git add -A && git commit'
 alias ga='git add -A'
 alias gam='git add -A && git commit --amend'

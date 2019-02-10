@@ -90,7 +90,7 @@ if [[ $sudoer == 'y' ]]; then
   install_zsh &&
   install_vim &&
   install_mc &&
-  install_rbenv &&
+  # install_rbenv &&
   install_gitprompt &&
   if [[ x$DISPLAY != x ]]; then
     install_terminator &&
@@ -108,7 +108,7 @@ elif [[ $sudoer == 'n' ]]; then
   cp ./.selected_editor ~/.selected_editor &&
   mkdir -p ~/.config/mc &&
   cp ./ini ~/.config/mc/ini &&
-  install_rbenv &&
+  # install_rbenv &&
   install_gitprompt &&
   if [[ x$DISPLAY != x ]]; then
     mkdir -p ~/.config/terminator &&

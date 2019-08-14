@@ -75,7 +75,6 @@ alias ll='sudo ss -ltupn'
 alias smc='sudo mc'
 alias mcu='mc -u'
 alias duh='du -hs .*; du -hs *'
-alias ngr='ngrok http'
 alias bps='bundle exec padrino s'
 alias bpc='bundle exec padrino c'
 alias brs='bundle exec rails s'
@@ -86,12 +85,14 @@ alias gst='git stash'
 alias gstp='git stash pop'
 alias routes='bundle exec rake routes'
 alias phs='mix phoenix.server'
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
 # export PATH="$HOME/.crenv/bin:$PATH"
 # eval "$(crenv init -)"
 # export PATH="$HOME/.exenv/bin:$PATH"
 # eval "$(exenv init -)"
+#. $HOME/.asdf/asdf.sh
+#. $HOME/.asdf/completions/asdf.bash
 
 tarc() {
   tar cvzf $1.tar.gz $1
@@ -100,8 +101,5 @@ tarc() {
 tarx() {
   tar xvzf $1
 }
-
-#. $HOME/.asdf/asdf.sh
-#. $HOME/.asdf/completions/asdf.bash
 
 export ERL_AFLAGS="-kernel shell_history enabled"

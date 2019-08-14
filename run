@@ -26,18 +26,45 @@ function install_mc() {
 }
 
 function install_rbenv() {
-  echo -e "${red}Installing rbenv...${reset}" &&
-  if [[ -d ~/.rbenv ]]; then
-    echo -e "${green}rbenv exists. Updating...${reset}" &&
-    ( cd ~/.rbenv && git pull origin master ) &&
-    if [[ -d ~/.rbenv/plugins/ruby-build ]]; then
-      ( cd ~/.rbenv/plugins/ruby-build && git pull origin master )
+  echo 'Install rbenv? y/n'
+  read should_install_rbenv
+  if [[ $should_install_rbenv == 'y' ]]; then
+    echo -e "${red}Installing rbenv...${reset}" &&
+    if [[ -d ~/.rbenv ]]; then
+      echo -e "${green}rbenv exists. Updating...${reset}" &&
+      ( cd ~/.rbenv && git pull origin master ) &&
+      if [[ -d ~/.rbenv/plugins/ruby-build ]]; then
+        ( cd ~/.rbenv/plugins/ruby-build && git pull origin master )
+      else
+        git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+      fi
     else
+      git clone https://github.com/rbenv/rbenv.git ~/.rbenv &&
       git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
     fi
+  elif [[ $should_install_rbenv == 'n' ]]; then
+    echo "${yellow}Skipping install rbenv.${reset}"
   else
-    git clone https://github.com/rbenv/rbenv.git ~/.rbenv &&
-    git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+    echo 'Use "y" or "n"'
+  fi
+}
+
+function install_asdf() {
+  echo 'Install asdf? y/n'
+  read should_install_asdf
+  if [[ $should_install_asdf == 'y' ]]; then
+    echo -e "${red}Installing asdf...${reset}" &&
+    if [[ -d ~/.asdf ]]; then
+      echo -e "${yellow}asdf exists. Skipping.${reset}"
+    else
+      git clone https://github.com/asdf-vm/asdf.git ~/.asdf &&
+      cd ~/.asdf &&
+      git checkout "$(git describe --abbrev=0 --tags)"
+    fi
+  elif [[ $sudoer == 'n' ]]; then
+    echo "${yellow}Skipping install asdf.${reset}"
+  else
+    echo 'Use "y" or "n"'
   fi
 }
 
@@ -85,12 +112,12 @@ echo 'Sudoer? y/n'
 read sudoer
 
 if [[ $sudoer == 'y' ]]; then
-
   sudo apt-get update &&
   install_zsh &&
   install_vim &&
   install_mc &&
-  # install_rbenv &&
+  install_rbenv &&
+  install_asdf &&
   install_gitprompt &&
   if [[ x$DISPLAY != x ]]; then
     install_terminator &&
@@ -100,15 +127,14 @@ if [[ $sudoer == 'y' ]]; then
     install_tmux &&
     install_done
   fi
-
 elif [[ $sudoer == 'n' ]]; then
-
   cp ./.zshrc ~/.zshrc &&
   cp ./.vimrc ~/.vimrc &&
   cp ./.selected_editor ~/.selected_editor &&
   mkdir -p ~/.config/mc &&
   cp ./ini ~/.config/mc/ini &&
-  # install_rbenv &&
+  install_rbenv &&
+  install_asdf &&
   install_gitprompt &&
   if [[ x$DISPLAY != x ]]; then
     mkdir -p ~/.config/terminator &&
@@ -121,7 +147,6 @@ elif [[ $sudoer == 'n' ]]; then
     install_done
     echo -e "${green}. Ask root user to change your default shell to zsh."
   fi
-
 else
   echo 'Use "y" or "n"'
 fi

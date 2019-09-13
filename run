@@ -113,6 +113,7 @@ read sudoer
 
 if [[ $sudoer == 'y' ]]; then
   sudo apt-get update &&
+  cp ./.irbrc ~/.irbrc &&
   install_zsh &&
   install_vim &&
   install_mc &&
@@ -128,6 +129,7 @@ if [[ $sudoer == 'y' ]]; then
     install_done
   fi
 elif [[ $sudoer == 'n' ]]; then
+  cp ./.irbrc ~/.irbrc &&
   cp ./.zshrc ~/.zshrc &&
   cp ./.vimrc ~/.vimrc &&
   cp ./.selected_editor ~/.selected_editor &&

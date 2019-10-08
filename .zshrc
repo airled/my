@@ -51,6 +51,7 @@ alias upg='sudo apt update && sudo apt dist-upgrade'
 alias cls='clear'
 alias la='ls -la --color=auto --group-directories-first'
 alias bi='bundle install'
+alias bu='bundle update'
 alias be='bundle exec'
 # alias gi='gem install --no-ri --no-rdoc' ruby < 2.6.0
 alias gi='gem install --no-document' # ruby >= 2.6.0

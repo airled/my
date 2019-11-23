@@ -87,6 +87,8 @@ alias gst='git stash'
 alias gstp='git stash pop'
 alias routes='bundle exec rake routes'
 alias phs='mix phoenix.server'
+alias yu='yarn upgrade'
+alias fd='fdfind'
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"
 # export PATH="$HOME/.crenv/bin:$PATH"

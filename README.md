@@ -5,6 +5,7 @@ Just gitclone it and run `./run`. If you are a sudoer, it will install:
 - mc (+ config)
 - [rbenv](https://github.com/rbenv/rbenv) with [ruby-build](https://github.com/rbenv/ruby-build)
 - [zsh-git-prompt](https://github.com/olivierverdier/zsh-git-prompt) (smart git status in your zsh-prompt)
+- fdfind (with alias set to just `fd`)
 - terminator (+ config) / if GUI
 - sublime text 3 (from its PPA) (+ several configs) / if GUI
 - tmux (+ config) / if no GUI

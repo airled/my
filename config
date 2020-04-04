@@ -1,28 +1,34 @@
 [global_config]
   window_state = maximise
+  extra_styling = False
+  title_receive_bg_color = "#050f59"
+  inactive_color_offset = 0.5061728395061729
+  enabled_plugins = ,
   suppress_multiple_term_dialog = True
+  smart_copy = False
 [keybindings]
   new_tab = <Primary>t
   split_horiz = <Primary>h
   split_vert = <Primary>v
 [profiles]
   [[default]]
-    use_system_font = False
-    background_image = None
-    cursor_color = "#ffffff"
-    foreground_color = "#ffffff"
-    scroll_on_output = False
     icon_bell = False
-    show_titlebar = False
-    font = Mono 14
-    background_color = "#020033"
+    background_color = "#080524"
+    background_darkness = 0.0
     cursor_blink = False
+    cursor_color = "#ffffff"
+    cursor_color_fg = False
+    font = Monospace 12
+    foreground_color = "#ffffff"
+    show_titlebar = False
     scrollback_infinite = True
+    use_system_font = False
 [layouts]
   [[default]]
     [[[child1]]]
       type = Terminal
       parent = window0
+      profile = default
     [[[window0]]]
       type = Window
       parent = ""

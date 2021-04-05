@@ -49,7 +49,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 alias upg='sudo apt update && sudo apt dist-upgrade'
 alias cls='clear'
-alias la='ls -la --color=auto --group-directories-first'
+alias la='ls -lav --color=auto --group-directories-first'
 alias yu='yarn upgrade'
 alias bi='bundle install'
 alias bu='bundle update'

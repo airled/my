@@ -1,0 +1,23 @@
+window:
+  startup_mode: Maximized
+  dynamic_title: true
+
+font:
+  size: 11.0
+
+colors:
+  primary:
+    background: '#080524'
+    foreground: '#ffffff'
+  normal:
+    black:   '#000000'
+    red:     '#aa0000'
+    green:   '#009900'
+    yellow:  '#f0c674'
+    blue:    '#0000dd'
+    magenta: '#b294bb'
+    cyan:    '#8abeb7'
+    white:   '#ffffff'
+
+selection:
+  save_to_clipboard: true

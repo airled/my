@@ -15,7 +15,10 @@ function install_vim() {
   echo -e "${red}Installing vim...${reset}" &&
   sudo apt-get -y install vim &&
   cp ./.vimrc ~/.vimrc &&
-  cp ./.selected_editor ~/.selected_editor
+  cp ./.selected_editor ~/.selected_editor &&
+  mkdir -p ~/.vim/autoload ~/.vim/bundle &&
+  curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim &&
+  git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 }
 
 function install_mc() {
@@ -128,10 +131,13 @@ function install_for_non_root() {
   install_gitprompt &&
   install_rbenv &&
   install_asdf &&
+  mkdir -p ~/.config/mc &&
+  mkdir -p ~/.vim/autoload ~/.vim/bundle &&
+  curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim &&
+  git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree &&
   cp ./.zshrc ~/.zshrc &&
   cp ./.vimrc ~/.vimrc &&
   cp ./.selected_editor ~/.selected_editor &&
-  mkdir -p ~/.config/mc &&
   cp ./ini ~/.config/mc/ini &&
   install_done &&
   echo -e "${green}. Ask root user to change your default shell to zsh.${reset}"

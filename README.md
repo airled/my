@@ -1,7 +1,7 @@
 The script has been done for deb-based systems with `apt-get`.
 Just gitclone it and run `./run`. If you are a sudoer, it will install:
 - zsh (+ config)
-- vim (+ config)
+- vim (+ config, + NERDTree)
 - mc (+ config)
 - [fdfind](https://github.com/sharkdp/fd) (better than find with alias set to just `fd`)
 - ncdu

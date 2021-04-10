@@ -33,7 +33,7 @@ zstyle ':completion:*' menu select
 
 alias upg='sudo apt update && sudo apt dist-upgrade'
 alias cls='clear'
-alias la='ls -lav --color=auto --group-directories-first'
+alias la='ls -lavh --color=auto --group-directories-first'
 alias yu='yarn upgrade'
 alias bi='bundle install'
 alias bu='bundle update'

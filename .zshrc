@@ -81,7 +81,7 @@ tarc() {
 }
 
 tarx() {
-  tar xvzf $1
+  tar xvaf $1
 }
 
 export ERL_AFLAGS="-kernel shell_history enabled"

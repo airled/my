@@ -17,8 +17,8 @@ PROMPT=$PS1
 
 setopt histignorealldups sharehistory
 setopt autocd
-bindkey -e
 
+bindkey -e
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 
@@ -30,6 +30,7 @@ autoload -Uz compinit
 compinit
 
 zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 alias upg='sudo apt update && sudo apt dist-upgrade'
 alias cls='clear'

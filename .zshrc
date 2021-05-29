@@ -70,6 +70,7 @@ alias phs='mix phoenix.server'
 alias fd='fdfind -HI'
 alias dfh='df -h'
 alias tf='tail -f'
+alias j='journalctl -fu'
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"
 #. $HOME/.asdf/asdf.sh

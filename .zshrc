@@ -71,6 +71,7 @@ alias fd='fdfind -HI'
 alias dfh='df -hT'
 alias tf='tail -f'
 alias j='journalctl -fu'
+alias dj='sudo docker logs -f -n 10'
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"
 #. $HOME/.asdf/asdf.sh

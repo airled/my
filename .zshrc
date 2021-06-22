@@ -35,6 +35,9 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 alias sstart="sudo systemctl start"
 alias sstop="sudo systemctl stop"
 alias srestart="sudo systemctl restart"
+alias sdisable="sudo systemctl disable"
+alias senable="sudo systemctl enable"
+alias sstatus="sudo systemctl status"
 alias upg='sudo apt update && sudo apt dist-upgrade'
 alias l='ls -lavh --color=auto --group-directories-first'
 alias bi='bundle install'

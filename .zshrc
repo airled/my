@@ -74,6 +74,7 @@ alias dfh='df -hT'
 alias tf='tail -f'
 alias j='journalctl -fu'
 alias dj='sudo docker logs -f -n 10'
+alias pp='pipenv run python'
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"
 #. $HOME/.asdf/asdf.sh

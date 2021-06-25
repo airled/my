@@ -49,7 +49,7 @@ function install_gitprompt() {
 }
 
 function install_rbenv() {
-  echo "${red}Install rbenv? y/n${reset}"
+  echo -e "${red}Install rbenv? y/n${reset}"
   read should_install_rbenv
   if [[ $should_install_rbenv == 'y' ]]; then
     echo -e "${red}Installing rbenv...${reset}" &&
@@ -74,7 +74,7 @@ function install_rbenv() {
 }
 
 function install_asdf() {
-  echo "${red}Install asdf? y/n${reset}"
+  echo -e "${red}Install asdf? y/n${reset}"
   read should_install_asdf
   if [[ $should_install_asdf == 'y' ]]; then
     echo -e "${red}Installing asdf...${reset}" &&

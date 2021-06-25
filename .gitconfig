@@ -1,0 +1,7 @@
+[user]
+	email = airled@mail.ru
+	name = airled
+[core]
+	editor = vim
+[pull]
+	ff = only

@@ -118,6 +118,7 @@ function install_for_root() {
   install_gitprompt &&
   install_rbenv &&
   install_asdf &&
+  cp ./.gitconfig ~/.gitconfig &&
   if [[ x$DISPLAY != x ]]; then
     install_sublime &&
     install_done

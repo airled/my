@@ -1,0 +1,155 @@
+#!/bin/bash
+
+red='\033[0;31m'
+green='\033[0;32m'
+reset='\033[0m'
+
+function install_zsh() {
+  echo -e "${red}Installing zsh...${reset}" &&
+  sudo pacman -S zsh &&
+  cp ./.zshrc ~/.zshrc &&
+  chsh -s /bin/zsh
+}
+
+function install_vim() {
+  echo -e "${red}Installing vim...${reset}" &&
+  sudo pacman -S vim &&
+  cp ./.vimrc ~/.vimrc &&
+  cp ./.selected_editor ~/.selected_editor &&
+  mkdir -p ~/.vim/autoload ~/.vim/bundle &&
+  curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim &&
+  git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
+}
+
+function install_mc() {
+  echo -e "${red}Installing mc...${reset}" &&
+  sudo pacman -S mc &&
+  mkdir -p ~/.config/mc &&
+  cp ./ini ~/.config/mc/ini
+}
+
+function install_fd() {
+  echo -e "${red}Installing fd...${reset}" &&
+  sudo pacman -S fd
+}
+
+function install_ncdu() {
+  echo -e "${red}Installing ncdu...${reset}" &&
+  sudo pacman -S ncdu
+}
+
+function install_gitprompt() {
+  echo -e "${red}Installing git-prompt...${reset}" &&
+  if [[ -d ~/.git-prompt.zsh ]]; then
+    echo -e "${yellow}git-prompt found. Updating...${reset}" &&
+    ( cd ~/.git-prompt.zsh && git pull origin master )
+  else
+    git clone --depth=1 https://github.com/woefe/git-prompt.zsh ~/.git-prompt.zsh
+  fi
+}
+
+function install_rbenv() {
+  echo -e "${red}Install rbenv? y/n${reset}"
+  read should_install_rbenv
+  if [[ $should_install_rbenv == 'y' ]]; then
+    echo -e "${red}Installing rbenv...${reset}" &&
+    cp ./.irbrc ~/.irbrc &&
+    if [[ -d ~/.rbenv ]]; then
+      echo -e "${yellow}rbenv exists. Updating...${reset}" &&
+      ( cd ~/.rbenv && git pull origin master ) &&
+      if [[ -d ~/.rbenv/plugins/ruby-build ]]; then
+        ( cd ~/.rbenv/plugins/ruby-build && git pull origin master )
+      else
+        git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+      fi
+    else
+      git clone https://github.com/rbenv/rbenv.git ~/.rbenv &&
+      git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+    fi
+  elif [[ $should_install_rbenv == 'n' ]]; then
+    echo "${yellow}Skipping install rbenv.${reset}"
+  else
+    echo 'Use "y" or "n"'
+  fi
+}
+
+function install_asdf() {
+  echo -e "${red}Install asdf? y/n${reset}"
+  read should_install_asdf
+  if [[ $should_install_asdf == 'y' ]]; then
+    echo -e "${red}Installing asdf...${reset}" &&
+    cp ./.irbrc ~/.irbrc &&
+    if [[ -d ~/.asdf ]]; then
+      echo -e "${yellow}asdf exists. Skipping.${reset}"
+    else
+      git clone https://github.com/asdf-vm/asdf.git ~/.asdf &&
+      ( cd ~/.asdf && git checkout "$(git describe --abbrev=0 --tags)" )
+    fi
+  elif [[ $sudoer == 'n' ]]; then
+    echo "${yellow}Skipping install asdf.${reset}"
+  else
+    echo 'Use "y" or "n"'
+  fi
+}
+
+function install_sublime() {
+  echo -e "${red}Installing Sublime Text from PPA...${reset}"
+  curl -O https://download.sublimetext.com/sublimehq-pub.gpg && sudo pacman-key --add sublimehq-pub.gpg && sudo pacman-key --lsign-key 8A8F901A && rm sublimehq-pub.gpg
+  echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/pacman.conf
+  sudo pacman -Sy &&
+  sudo pacman -S sublime-text &&
+  mkdir -p ~/.config/sublime-text/Packages &&
+  cp -r ./sublime_settings ~/.config/sublime-text/Packages/User
+}
+
+function install_done() {
+  echo -e "${green}Workspace has been setup.${reset}"
+}
+
+
+function install_for_root() {
+  sudo apt-get update &&
+  install_zsh &&
+  install_vim &&
+  install_mc &&
+  install_fd &&
+  install_ncdu &&
+  install_gitprompt &&
+  install_rbenv &&
+  install_asdf &&
+  cp ./.gitconfig ~/.gitconfig &&
+  if [[ x$DISPLAY != x ]]; then
+    install_sublime &&
+    install_done
+  else
+    install_done
+  fi
+}
+
+function install_for_non_root() {
+  install_gitprompt &&
+  install_rbenv &&
+  install_asdf &&
+  mkdir -p ~/.config/mc &&
+  mkdir -p ~/.vim/autoload ~/.vim/bundle &&
+  curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim &&
+  git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree &&
+  cp ./.zshrc ~/.zshrc &&
+  cp ./.vimrc ~/.vimrc &&
+  cp ./.selected_editor ~/.selected_editor &&
+  cp ./ini ~/.config/mc/ini &&
+  install_done &&
+  echo -e "${green}. Ask root user to change your default shell to zsh.${reset}"
+}
+
+# MAIN SCRIPT
+
+echo 'Sudoer? y/n'
+read sudoer
+if [[ $sudoer == 'y' ]]; then
+  install_for_root
+elif [[ $sudoer == 'n' ]]; then
+  install_for_non_root
+else
+  echo 'Use "y" or "n"'
+fi

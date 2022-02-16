@@ -25,7 +25,8 @@ function install_mc() {
   echo -e "${red}Installing mc...${reset}" &&
   sudo apt-get -y install mc &&
   mkdir -p ~/.config/mc &&
-  cp ./ini ~/.config/mc/ini
+  cp ./ini ~/.config/mc/ini &&
+  cp ./panels.ini ~/.config/mc/panels.ini
 }
 
 function install_fd() {
@@ -139,6 +140,7 @@ function install_for_non_root() {
   cp ./.vimrc ~/.vimrc &&
   cp ./.selected_editor ~/.selected_editor &&
   cp ./ini ~/.config/mc/ini &&
+  cp ./panels.ini ~/.config/mc/panels.ini &&
   install_done &&
   echo -e "${green}. Ask root user to change your default shell to zsh.${reset}"
 }

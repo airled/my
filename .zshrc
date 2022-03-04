@@ -39,7 +39,7 @@ alias sdisable="sudo systemctl disable"
 alias senable="sudo systemctl enable"
 alias sstatus="sudo systemctl status"
 alias upg='sudo apt update && sudo apt dist-upgrade'
-alias l='ls -lavh --color=auto --group-directories-first'
+alias l='ls -lAvh --color=auto --group-directories-first'
 alias bi='bundle install'
 alias bu='bundle update'
 alias be='bundle exec'

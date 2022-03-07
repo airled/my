@@ -32,6 +32,7 @@ compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
+alias sunits="sudo systemctl list-unit-files -t service --state enabled"
 alias sstart="sudo systemctl start"
 alias sstop="sudo systemctl stop"
 alias srestart="sudo systemctl restart"

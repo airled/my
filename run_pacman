@@ -109,7 +109,6 @@ function install_done() {
 
 
 function install_for_root() {
-  sudo apt-get update &&
   install_zsh &&
   install_vim &&
   install_mc &&

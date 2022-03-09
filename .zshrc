@@ -32,13 +32,15 @@ compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
-alias sunits="sudo systemctl list-unit-files -t service --state enabled"
+alias sunits="systemctl list-unit-files -t service --state enabled"
 alias sstart="sudo systemctl start"
 alias sstop="sudo systemctl stop"
 alias srestart="sudo systemctl restart"
 alias sdisable="sudo systemctl disable"
 alias senable="sudo systemctl enable"
 alias sstatus="sudo systemctl status"
+alias sshow="sudo systemctl cat"
+alias sreload="sudo systemctl daemon-reload"
 alias upg='sudo apt update && sudo apt dist-upgrade'
 alias l='ls -lAvh --color=auto --group-directories-first'
 alias bi='bundle install'

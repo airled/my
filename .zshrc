@@ -92,3 +92,5 @@ tarx() {
 }
 
 export ERL_AFLAGS="-kernel shell_history enabled"
+export EDITOR=vim
+export TERM=xterm-256color

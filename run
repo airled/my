@@ -4,6 +4,11 @@ red='\033[0;31m'
 green='\033[0;32m'
 reset='\033[0m'
 
+function install_curl() {
+  echo -e "${red}Installing curl...${reset}" &&
+  sudo apt-get -y install curl
+}
+
 function install_zsh() {
   echo -e "${red}Installing zsh...${reset}" &&
   sudo apt-get -y install zsh &&
@@ -111,6 +116,7 @@ function install_done() {
 
 function install_for_root() {
   sudo apt-get update &&
+  install_curl &&
   install_zsh &&
   install_vim &&
   install_mc &&

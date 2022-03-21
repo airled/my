@@ -21,6 +21,7 @@ setopt autocd
 bindkey -e
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
+bindkey "^[[3~" delete-char
 
 HISTSIZE=1000
 SAVEHIST=1000
@@ -64,7 +65,7 @@ alias grm='git rebase main'
 alias lg='git log'
 alias gcl='git checkout -f && git clean -df'
 alias apti='sudo apt install'
-alias ipa="ip a | grep '^[0-9]\+:\|inet'"
+alias ipa="ip a | grep '^[0-9]\+:\|inet' | grep -v LOOPBACK | grep -v 'scope host'"
 alias ipr="ip -4 route show table all type unicast && echo '---' && ip -6 route show table all type unicast | grep -v 'dev lo'"
 alias ll='ss -ltupn'
 alias brs='bundle exec rails s'
@@ -86,6 +87,10 @@ alias pp='pipenv run python'
 #. $HOME/.asdf/completions/asdf.bash
 
 tarc() {
+  tar cvf $1.tar $1
+}
+
+tarz() {
   tar cvzf $1.tar.gz $1
 }
 
@@ -96,3 +101,4 @@ tarx() {
 export ERL_AFLAGS="-kernel shell_history enabled"
 export EDITOR=vim
 export TERM=xterm-256color
+export JQ_COLORS='0;31:0;39:0;39:0;39:0;32:1;39:1;39'

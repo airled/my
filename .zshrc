@@ -68,6 +68,7 @@ alias apti='sudo apt install'
 alias ipa="ip a | grep '^[0-9]\+:\|inet' | grep -v LOOPBACK | grep -v 'scope host'"
 alias ipr="ip -4 route show table all type unicast && echo '---' && ip -6 route show table all type unicast | grep -v 'dev lo'"
 alias ll='ss -ltupn'
+alias ipt='sudo iptables -vnL'
 alias brs='bundle exec rails s'
 alias brc='bundle exec rails c'
 alias dbm='bundle exec rake db:migrate'

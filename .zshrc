@@ -43,7 +43,8 @@ alias sstatus="sudo systemctl status"
 alias sshow="sudo systemctl cat"
 alias sreload="sudo systemctl daemon-reload"
 alias upg='sudo apt update && sudo apt dist-upgrade'
-alias l='ls -lAvh --color=auto --group-directories-first'
+alias l='ls -lvh --color=auto --group-directories-first'
+alias la='ls -lAvh --color=auto --group-directories-first'
 alias bi='bundle install'
 alias bu='bundle update'
 alias be='bundle exec'

@@ -66,10 +66,18 @@ alias grm='git rebase main'
 alias lg='git log'
 alias gcl='git checkout -f && git clean -df'
 alias apti='sudo apt install'
-alias ipa="ip a | grep '^[0-9]\+:\|inet' | grep -v LOOPBACK | grep -v 'scope host'"
-alias ipr="ip -4 route show table all type unicast && echo '---' && ip -6 route show table all type unicast | grep -v 'dev lo'"
+alias ipa="ip -c a | grep '^[0-9]\+:\|inet' | grep -v LOOPBACK | grep -v 'scope host'"
+alias ipr="ip -c -4 route show table all type unicast && echo '---' && ip -c -6 route show table all type unicast | grep -v '::1'"
 alias ll='ss -ltupn'
-alias ipt='sudo iptables -vnL'
+alias ipt="sudo iptables --line-numbers -vnL |\
+  sed -E 's/^Chain.*$/\x1b[4m&\x1b[0m/' |\
+  sed -E 's/^num.*/\x1b[33m&\x1b[0m/' |\
+  sed -E '/(REJECT|DROP)/s//\x1b[31m\1\x1b[37m/' |\
+  sed -E '/(INPUT|FORWARD|OUTPUT)/s//\x1b[35m\1\x1b[37m/' |\
+  sed -E '/(ACCEPT)/s//\x1b[32m\1\x1b[37m/' |\
+  sed -E '/(dpt?:)([[:digit:]]+(:[[:digit:]]+)?)/s//\1\x1b[33;1m\2\x1b[0m/' |\
+  sed -E '/(spt?:)([[:digit:]]+(:[[:digit:]]+)?)/s//\1\x1b[33;1m\2\x1b[0m/' |\
+  sed -E '/([[:digit:]]{1,3}\.){3}[[:digit:]]{1,3}(\/([[:digit:]]){1,3}){0,1}/s//\x1b[36;1m&\x1b[0m/g'"
 alias brs='bundle exec rails s'
 alias brc='bundle exec rails c'
 alias dbm='bundle exec rake db:migrate'

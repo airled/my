@@ -101,7 +101,7 @@ tarc() {
 }
 
 tarz() {
-  tar cvzf $1.tar.gz $1
+  tar vcf - $1 | zstd -9 > $1.tar.zst
 }
 
 tarx() {

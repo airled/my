@@ -43,8 +43,6 @@ alias sstatus="sudo systemctl status"
 alias sshow="sudo systemctl cat"
 alias sreload="sudo systemctl daemon-reload"
 alias upg='sudo apt update && sudo apt dist-upgrade'
-alias l='ls -lvhN --color=always --group-directories-first | tail -n +2'
-alias la='ls -lAvhN --color=always --group-directories-first | tail -n +2'
 alias bi='bundle install'
 alias bu='bundle update'
 alias be='bundle exec'
@@ -106,6 +104,14 @@ tarz() {
 
 tarx() {
   tar xvaf $1
+}
+
+l() {
+  ls -lvhN --color=always --group-directories-first $1 | tail -n +2
+}
+
+la() {
+  ls -lAvhN --color=always --group-directories-first $1 | tail -n +2
 }
 
 export ERL_AFLAGS="-kernel shell_history enabled"

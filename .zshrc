@@ -61,7 +61,7 @@ alias di2='git diff HEAD^ HEAD'
 alias di2n='git diff HEAD^ HEAD --shortstat --numstat'
 alias grl='git reset --soft HEAD^'
 alias grm='git rebase main'
-alias lg='git log'
+alias lg='git log --pretty=format:"%C(green)%H%Cred%d%n%C(yellow)%ae  %ai%n%s%n"'
 alias gcl='git checkout -f && git clean -df'
 alias apti='sudo apt install'
 alias ipa="ip -c a | grep '^[0-9]\+:\|inet' | grep -v LOOPBACK | grep -v 'scope host'"

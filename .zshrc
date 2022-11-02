@@ -54,7 +54,6 @@ alias pl='git pull'
 alias st='git status -s'
 alias ch='git checkout'
 alias chb='git checkout -b'
-alias chf='git checkout --'
 alias br='git branch'
 alias di='git diff'
 alias di2='git diff HEAD^ HEAD'
@@ -112,6 +111,10 @@ l() {
 
 la() {
   ls -lAvhN --color=always --group-directories-first $1 | tail -n +2
+}
+
+chf() {
+  git reset -- $1; git checkout -- $1
 }
 
 export ERL_AFLAGS="-kernel shell_history enabled"

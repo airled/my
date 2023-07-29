@@ -6,4 +6,9 @@
 [pull]
 	ff = only
 [init]
-	defaultBranch = main
+        defaultBranch = main
+
+[color "diff"]
+        context = dim
+        meta = yellow
+        frag = dim

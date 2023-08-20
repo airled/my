@@ -33,5 +33,6 @@
 	],
 	"show_encoding": true,
 	"theme": "Adaptive.sublime-theme",
-	"word_wrap": "true"
+	"word_wrap": "true",
+	"show_line_endings": true
 }

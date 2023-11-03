@@ -55,8 +55,8 @@ alias st='git status -s'
 alias ch='git checkout'
 alias chb='git checkout -b'
 alias br='git branch'
-alias di='git diff'
-alias di2='git diff HEAD^ HEAD'
+alias di="git diff --no-prefix --output-indicator-{old,new,context}=' '"
+alias di2="git diff HEAD^ HEAD --no-prefix --output-indicator-{old,new,context}=' '"
 alias di2n='git diff HEAD^ HEAD --shortstat --numstat'
 alias grl='git reset --soft HEAD^'
 alias grm='git rebase main'

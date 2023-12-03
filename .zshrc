@@ -58,7 +58,7 @@ alias br='git branch'
 alias di="git diff --no-prefix --output-indicator-{old,new,context}=' '"
 alias di2="git diff HEAD^ HEAD --no-prefix --output-indicator-{old,new,context}=' '"
 alias di2n='git diff HEAD^ HEAD --shortstat --numstat'
-alias grl='git reset --soft HEAD^'
+alias grl='git reset HEAD^'
 alias grm='git rebase main'
 alias lg='git log --pretty=format:"%C(green)%H%Cred%d%n%C(yellow)%ae  %ai%n%s%n"'
 alias gcl='git checkout -f && git clean -df'

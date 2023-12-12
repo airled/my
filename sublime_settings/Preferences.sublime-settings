@@ -17,7 +17,6 @@
 		"node_modules/**",
 		"public/packs/**"
 	],
-	"caret_extra_width": 1,
 	"color_scheme": "Packages/Color Scheme - Default/Blackboard.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
 	"font_size": 13,
@@ -34,5 +33,6 @@
 	"show_encoding": true,
 	"theme": "Adaptive.sublime-theme",
 	"word_wrap": "true",
-	"show_line_endings": true
+	"show_line_endings": true,
+	"file_tab_style": "square",
 }

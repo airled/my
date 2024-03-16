@@ -31,7 +31,7 @@ autoload -Uz compinit
 compinit
 
 zstyle ':completion:*' menu select
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' '+l:|=*'
 
 alias sunits="systemctl list-unit-files -t service --state enabled"
 alias sstart="sudo systemctl start"

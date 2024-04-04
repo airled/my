@@ -88,6 +88,8 @@ alias tf='tail -f'
 alias j='journalctl -fu'
 alias dj='sudo docker logs -f -n 10'
 alias pp='pipenv run python'
+alias ffprobe='ffprobe -hide_banner'
+alias ffmpeg='ffmpeg -hide_banner'
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"
 #. $HOME/.asdf/asdf.sh

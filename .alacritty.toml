@@ -1,0 +1,23 @@
+[colors.normal]
+black = "#000000"
+blue = "#0000dd"
+cyan = "#8abeb7"
+green = "#009900"
+magenta = "#b294bb"
+red = "#aa0000"
+white = "#ffffff"
+yellow = "#f0c674"
+
+[colors.primary]
+background = "#080524"
+foreground = "#ffffff"
+
+[font]
+size = 11.0
+
+[selection]
+save_to_clipboard = true
+
+[window]
+dynamic_title = true
+startup_mode = "Maximized"

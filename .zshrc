@@ -75,7 +75,7 @@ alias ipt="sudo iptables --line-numbers -vnL |\
   sed -E '/(dpt?:)([[:digit:]]+(:[[:digit:]]+)?)/s//\1\x1b[33;1m\2\x1b[0m/' |\
   sed -E '/(spt?:)([[:digit:]]+(:[[:digit:]]+)?)/s//\1\x1b[33;1m\2\x1b[0m/' |\
   sed -E '/([[:digit:]]{1,3}\.){3}[[:digit:]]{1,3}(\/([[:digit:]]){1,3}){0,1}/s//\x1b[36;1m&\x1b[0m/g'"
-alias nftl="sudo nft -n list ruleset | sed -E '/(reject|drop)/s//\x1b[31m\1\x1b[37m/' |  sed -E '/(input|forward|output)/s//\x1b[35m\1\x1b[37m/' |  sed -E '/(accept)/s//\x1b[32m\1\x1b[37m/'"
+alias nftl="sudo nft -a -n list ruleset | sed -E '/(reject|drop)/s//\x1b[31m\1\x1b[37m/' |  sed -E '/(input|forward|output)/s//\x1b[35m\1\x1b[37m/' |  sed -E '/(accept)/s//\x1b[32m\1\x1b[37m/' | sed -E '/(#.+$)/s//\x1b[90m\1\x1b[37m/'"
 alias brs='bundle exec rails s'
 alias brc='bundle exec rails c'
 alias dbm='bundle exec rake db:migrate'

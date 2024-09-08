@@ -123,4 +123,4 @@ chf() {
 export ERL_AFLAGS="-kernel shell_history enabled"
 export EDITOR=vim
 export TERM=xterm-256color
-export JQ_COLORS='0;31:0;39:0;39:0;39:0;32:1;39:1;39'
+export JQ_COLORS='0;31:0;33:0;33:0;36:0;32:1;39:1;39:0;37'

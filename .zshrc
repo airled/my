@@ -64,7 +64,7 @@ alias lg='git log --pretty=format:"%C(green)%H%Cred%d%n%C(yellow)%ae  %ai%n%s%n"
 alias gcl='git checkout -f && git clean -df'
 alias apti='sudo apt install'
 alias ipa="ip -c a | grep '^[0-9]\+:\|inet' | grep -v LOOPBACK | grep -v 'scope host'"
-alias ipr="ip -c -4 route show table all type unicast && echo '---' && ip -c -6 route show table all type unicast | grep -v '::1'"
+alias ipr="ip -c -4 route show table all type unicast && echo '---' && ip -c -6 route show table all type unicast"
 alias ll="ss -ltupn | sed -E '/(tcp)/s//\x1b[32m\1\x1b[37m/' | sed -E '/(udp)/s//\x1b[35m\1\x1b[37m/'"
 alias ipt="sudo iptables --line-numbers -vnL |\
   sed -E 's/^Chain.*$/\x1b[4m&\x1b[0m/' |\

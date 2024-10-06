@@ -6,12 +6,12 @@ for color in red green yellow blue magenta cyan black white; do
 done
 reset="%{$reset_color%}"
 
-RPS1='$(gitprompt)[${white}%D{%H:%M:%S}]${blue}[%n@%m]${reset}'
+RPS1='$(gitprompt)${white}%D{%H:%M:%S}${reset}'
 
 if [[ $EUID == 0 ]]; then
-  PS1="${red}[%~] # ${reset}";
+  PS1="${red}[%n@%m] ${blue}%~ # ${reset}";
 else
-  PS1="${cyan}[%~] > ${reset}";
+  PS1="${yellow}[%n@%m] ${blue}%~ > ${reset}";
 fi
 PROMPT=$PS1
 

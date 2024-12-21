@@ -47,7 +47,6 @@ alias bi='bundle install'
 alias bu='bundle update'
 alias be='bundle exec'
 alias gi='gem install --no-document'
-alias gc='git add -A && git commit -m'
 alias ga='git add -A'
 alias gam='git add -A && git commit --amend'
 alias pl='git pull'
@@ -118,6 +117,10 @@ la() {
 
 chf() {
   git reset -- $1; git checkout -- $1
+}
+
+gc() {
+  git add -A && git commit -m "$*"
 }
 
 export ERL_AFLAGS="-kernel shell_history enabled"

@@ -90,6 +90,7 @@ alias dj='sudo docker logs -f -n 10'
 alias pp='pipenv run python'
 alias ffprobe='ffprobe -hide_banner'
 alias ffmpeg='ffmpeg -hide_banner'
+alias rs='rsync -Pa'
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"
 #. $HOME/.asdf/asdf.sh

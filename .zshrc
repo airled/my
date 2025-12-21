@@ -91,6 +91,7 @@ alias pp='pipenv run python'
 alias ffprobe='ffprobe -hide_banner'
 alias ffmpeg='ffmpeg -hide_banner'
 alias rs='rsync -Pa'
+alias h='htop'
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"
 #. $HOME/.asdf/asdf.sh

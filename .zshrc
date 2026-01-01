@@ -64,7 +64,8 @@ alias gcl='git checkout -f && git clean -df'
 alias apti='sudo apt install'
 alias ipa="ip -c a | grep '^[0-9]\+:\|inet' | grep -v LOOPBACK | grep -v 'scope host'"
 alias ipr="ip -c -4 route show table all type unicast && echo '---' && ip -c -6 route show table all type unicast"
-alias ll="ss -ltupn | sed -E '/(tcp)/s//\x1b[32m\1\x1b[37m/' | sed -E '/(udp)/s//\x1b[35m\1\x1b[37m/'"
+alias p="ss -ltupn | tail -n +2 | sed -E '/(tcp)/s//\x1b[32m\1\x1b[37m/' | sed -E '/(udp)/s//\x1b[35m\1\x1b[37m/'"
+alias pp="p | grep -v '\[::1\]' | grep -v '127.0.0'"
 alias ipt="sudo iptables --line-numbers -vnL |\
   sed -E 's/^Chain.*$/\x1b[4m&\x1b[0m/' |\
   sed -E 's/^num.*/\x1b[33m&\x1b[0m/' |\
@@ -87,7 +88,6 @@ alias dfh='df -hT | { read -r line; echo "$line"; sort -k 7,7; }'
 alias tf='tail -f'
 alias j='journalctl -fu'
 alias dj='sudo docker logs -f -n 10'
-alias pp='pipenv run python'
 alias ffprobe='ffprobe -hide_banner'
 alias ffmpeg='ffmpeg -hide_banner'
 alias rs='rsync -Pa'

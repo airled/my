@@ -92,10 +92,12 @@ alias ffprobe='ffprobe -hide_banner'
 alias ffmpeg='ffmpeg -hide_banner'
 alias rs='rsync -Pa'
 alias h='htop'
+
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"
-#. $HOME/.asdf/asdf.sh
-#. $HOME/.asdf/completions/asdf.bash
+
+#export PATH="$HOME/.local/bin:$PATH"
+#export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 tarc() {
   tar cvf $1.tar $1

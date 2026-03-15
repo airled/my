@@ -85,13 +85,10 @@ function install_asdf() {
   if [[ $should_install_asdf == 'y' ]]; then
     echo -e "${red}Installing asdf...${reset}" &&
     cp ./.irbrc ~/.irbrc &&
-    if [[ -d ~/.asdf ]]; then
-      echo -e "${yellow}asdf exists. Skipping.${reset}"
-    else
-      git clone https://github.com/asdf-vm/asdf.git ~/.asdf &&
-      ( cd ~/.asdf && git checkout "$(git describe --abbrev=0 --tags)" )
-    fi
-  elif [[ $sudoer == 'n' ]]; then
+    mkdir -p ~/.local/bin &&
+    ( cd ~/.local/bin &&
+    wget -qO- --max-redirect=10 $(curl -s 'https://api.github.com/repos/asdf-vm/asdf/releases/latest' | jq -r '.assets[] | select(.name | test("linux-amd64.tar.gz$")) | .browser_download_url') | gunzip -c | tar xv )
+  elif [[ $should_install_asdf == 'n' ]]; then
     echo "${yellow}Skipping install asdf.${reset}"
   else
     echo 'Use "y" or "n"'

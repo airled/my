@@ -1,0 +1,194 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "cli_default_open_behavior": "new_window",
+  "multi_cursor_modifier": "cmd_or_ctrl",
+  "git": {
+    "branch_picker": {
+      "show_author_name": false
+    },
+    "blame": {
+      "show_avatar": false
+    },
+    "enable_diff": false,
+    "enable_status": false,
+    "inline_blame": {
+      "enabled": false,
+    },
+  },
+  "auto_update": false,
+  "soft_wrap": "editor_width",
+  "buffer_font_family": "DejaVu Sans Mono",
+  "buffer_line_height": "standard",
+  "toolbar": {
+    "selections_menu": true,
+    "quick_actions": false,
+    "breadcrumbs": false,
+  },
+  "buffer_font_weight": 500.0,
+  "project_panel": {
+    "dock": "left",
+  },
+  "disable_ai": true,
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "base_keymap": "SublimeText",
+  "icon_theme": "Zed (Default)",
+  "ui_font_size": 13.0,
+  "buffer_font_size": 14.0,
+  "theme": "One Dark",
+  "theme_overrides": {
+    "One Dark": {
+      "text.muted": "#FFFFFF",
+      "background": "#0C1021",
+      "editor.background": "#0C1021",
+      "editor.foreground": "#F8F8F8",
+      "syntax": {
+        "comment": {
+          "color": "#AEAEAEFF",
+        },
+        "string": {
+          "color": "#61CE3CFF",
+        },
+        "keyword": {
+          "color": "#FBDE2DFF",
+        },
+        "function": {
+          "color": "#ffa061FF",
+        },
+        "type": {
+          "color": "#8DA6CEFF",
+        },
+        "variable": {
+          "color": "#FFFFFFFF",
+        },
+        "number": {
+          "color": "#D8FA3CFF",
+        },
+        "operator": {
+          "color": "#FBDE2DFF",
+        },
+        "property": {
+          "color": "#FFFFFFFF",
+        },
+        "constant": {
+          "color": "#8DA6CEFF",
+        },
+        "comment.doc": {
+          "color": "#AEAEAEFF",
+        },
+        "string.escape": {
+          "color": "#61CE3CFF",
+        },
+        "string.regex": {
+          "color": "#61CE3CFF",
+        },
+        "string.special": {
+          "color": "#61CE3CFF",
+        },
+        "string.special.symbol": {
+          "color": "#D8FA3CFF",
+        },
+        "text.literal": {
+          "color": "#61CE3CFF",
+        },
+        "boolean": {
+          "color": "#D8FA3CFF",
+        },
+        "preproc": {
+          "color": "#FBDE2DFF",
+        },
+        "attribute": {
+          "color": "#FFFFFFFF",
+        },
+        "enum": {
+          "color": "#8DA6CEFF",
+        },
+        "namespace": {
+          "color": "#8DA6CEFF",
+        },
+        "variant": {
+          "color": "#8DA6CEFF",
+        },
+        "variable.special": {
+          "color": "#FFFFFFFF",
+        },
+        "label": {
+          "color": "#FFFFFFFF",
+        },
+        "punctuation": {
+          "color": "#FFFFFFFF",
+        },
+        "punctuation.bracket": {
+          "color": "#FFFFFFFF",
+        },
+        "punctuation.delimiter": {
+          "color": "#FFFFFFFF",
+        },
+        "punctuation.list_marker": {
+          "color": "#FFFFFFFF",
+        },
+        "punctuation.markup": {
+          "color": "#FFFFFFFF",
+        },
+        "punctuation.special": {
+          "color": "#FFFFFFFF",
+        },
+        "tag": {
+          "color": "#8DA6CEFF",
+        },
+        "title": {
+          "color": "#FBDE2DFF",
+        },
+        "emphasis": {
+          "color": "#FBDE2DFF",
+        },
+        "emphasis.strong": {
+          "color": "#FBDE2DFF",
+        },
+        "link_text": {
+          "color": "#FBDE2DFF",
+        },
+        "link_uri": {
+          "color": "#FBDE2DFF",
+        },
+        "selector": {
+          "color": "#FBDE2DFF",
+        },
+        "selector.pseudo": {
+          "color": "#FBDE2DFF",
+        },
+        "primary": {
+          "color": "#FFFFFFFF",
+        },
+        "embedded": {
+          "color": "#FFFFFFFF",
+        },
+        "predictive": {
+          "color": "#FFFFFFFF",
+        },
+        "hint": {
+          "color": "#FFFFFFFF",
+        },
+        "variable.parameter": {
+          "color": "#FFFFFF"
+        }
+      },
+    },
+  },
+  "lsp": {
+    "solargraph": {
+      "settings": {
+        "use_bundler": false
+      }
+    }
+  }
+}

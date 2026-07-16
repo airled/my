@@ -95,15 +95,11 @@ function install_asdf() {
   fi
 }
 
-function install_sublime() {
-  echo -e "${red}Installing Sublime Text from PPA...${reset}"
-  wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg
-  sudo apt-get install apt-transport-https
-  echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-  sudo apt-get update &&
-  sudo apt-get install sublime-text &&
-  mkdir -p ~/.config/sublime-text/Packages &&
-  cp -r ./sublime_settings ~/.config/sublime-text/Packages/User
+function install_zed() {
+    echo -e "${red}Installing Zed editor...${reset}" &&
+    curl -f https://zed.dev/install.sh | sh
+    mkdir -p ~/.config/zed &&
+    cp -r ./zed_settings.json ~/.config/zed/settings.json
 }
 
 function install_done() {
@@ -124,7 +120,7 @@ function install_for_root() {
   install_asdf &&
   cp ./.gitconfig ~/.gitconfig &&
   if [[ x$DISPLAY != x ]]; then
-    install_sublime &&
+    install_zed &&
     install_done
   else
     install_done

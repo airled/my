@@ -103,7 +103,8 @@ function install_zed() {
     echo -e "${red}Installing Zed editor...${reset}" &&
     curl -f https://zed.dev/install.sh | sh
     mkdir -p ~/.config/zed &&
-    cp -r ./zed_settings.json ~/.config/zed/settings.json
+    cp -r ./zed/settings.json ~/.config/zed/settings.json &&
+    cp -r ./zed/keymap.json ~/.config/zed/keymap.json
 }
 
 function prepare_firefox_repository() {

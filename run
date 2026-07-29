@@ -2,54 +2,57 @@
 
 red='\033[0;31m'
 green='\033[0;32m'
+yellow='\033[0;33m'
 reset='\033[0m'
 
 function update() {
-    sudo apt-get update
+  echo -e "${green}Updating repositories...${reset}" &&
+  sudo apt-get update
+}
+
+function apt_install() {
+  echo -e "${green}Installing $1...${reset}" &&
+  sudo apt-get -y install $1
+}
+
+function copy_config() {
+  echo -e "${green}Copying config $1 to $2...${reset}" &&
+  cp ./configs/$1 $2
 }
 
 function install_curl() {
-  echo -e "${red}Installing curl...${reset}" &&
-  sudo apt-get -y install curl
+  apt_install curl
 }
 
 function install_zsh() {
-  echo -e "${red}Installing zsh...${reset}" &&
-  sudo apt-get -y install zsh &&
-  cp ./.zshrc ~/.zshrc &&
-  chsh -s /bin/zsh
+  apt_install zsh &&
+  copy_config .zshrc ~/.zshrc &&
+  sudo chsh -s /bin/zsh
 }
 
 function install_vim() {
-  echo -e "${red}Installing vim...${reset}" &&
-  sudo apt-get -y install vim &&
-  cp ./.vimrc ~/.vimrc &&
-  cp ./.selected_editor ~/.selected_editor &&
-  mkdir -p ~/.vim/autoload ~/.vim/bundle &&
-  curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim &&
-  git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
+  apt_install vim &&
+  copy_config vim/.vimrc ~/.vimrc &&
+  copy_config vim/.selected_editor ~/.selected_editor
 }
 
 function install_mc() {
-  echo -e "${red}Installing mc...${reset}" &&
-  sudo apt-get -y install mc &&
+  apt_install mc &&
   mkdir -p ~/.config/mc &&
-  cp ./mc/ini ~/.config/mc/ini &&
-  cp ./mc/panels.ini ~/.config/mc/panels.ini
+  copy_config mc/ini ~/.config/mc/ini &&
+  copy_config mc/panels.ini ~/.config/mc/panels.ini
 }
 
 function install_fd() {
-  echo -e "${red}Installing fd-find...${reset}" &&
-  sudo apt-get -y install fd-find
+  apt_install fd-find
 }
 
 function install_ncdu() {
-  echo -e "${red}Installing ncdu...${reset}" &&
-  sudo apt-get -y install ncdu
+  apt_install ncdu
 }
 
 function install_gitprompt() {
-  echo -e "${red}Installing git-prompt...${reset}" &&
+  echo -e "${green}Installing git-prompt...${reset}" &&
   if [[ -d ~/.git-prompt.zsh ]]; then
     echo -e "${yellow}git-prompt found. Updating...${reset}" &&
     ( cd ~/.git-prompt.zsh && git pull origin master )
@@ -59,11 +62,11 @@ function install_gitprompt() {
 }
 
 function install_rbenv() {
-  echo -e "${red}Install rbenv? y/n${reset}"
+  echo -e "${yellow}Install rbenv? y/n${reset}"
   read should_install_rbenv
   if [[ $should_install_rbenv == 'y' ]]; then
-    echo -e "${red}Installing rbenv...${reset}" &&
-    cp ./.irbrc ~/.irbrc &&
+    echo -e "${green}Installing rbenv...${reset}" &&
+    copy_config .irbrc ~/.irbrc &&
     if [[ -d ~/.rbenv ]]; then
       echo -e "${yellow}rbenv exists. Updating...${reset}" &&
       ( cd ~/.rbenv && git pull origin master ) &&
@@ -77,62 +80,60 @@ function install_rbenv() {
       git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
     fi
   elif [[ $should_install_rbenv == 'n' ]]; then
-    echo "${yellow}Skipping install rbenv.${reset}"
+    echo -e "${yellow}Skipping install rbenv.${reset}"
   else
     echo 'Use "y" or "n"'
   fi
 }
 
 function install_asdf() {
-  echo -e "${red}Install asdf? y/n${reset}"
+  echo -e "${yellow}Install asdf? y/n${reset}"
   read should_install_asdf
   if [[ $should_install_asdf == 'y' ]]; then
-    echo -e "${red}Installing asdf...${reset}" &&
-    cp ./.irbrc ~/.irbrc &&
+    echo -e "${green}Installing asdf...${reset}" &&
+    copy_config .irbrc ~/.irbrc &&
     mkdir -p ~/.local/bin &&
     ( cd ~/.local/bin &&
     wget -qO- --max-redirect=10 $(curl -s 'https://api.github.com/repos/asdf-vm/asdf/releases/latest' | jq -r '.assets[] | select(.name | test("linux-amd64.tar.gz$")) | .browser_download_url') | gunzip -c | tar xv )
   elif [[ $should_install_asdf == 'n' ]]; then
-    echo "${yellow}Skipping install asdf.${reset}"
+    echo -e "${yellow}Skipping install asdf.${reset}"
   else
     echo 'Use "y" or "n"'
   fi
 }
 
 function install_zed() {
-    echo -e "${red}Installing Zed editor...${reset}" &&
-    curl -f https://zed.dev/install.sh | sh
-    mkdir -p ~/.config/zed &&
-    cp -r ./zed/settings.json ~/.config/zed/settings.json &&
-    cp -r ./zed/keymap.json ~/.config/zed/keymap.json
+  echo -e "${green}Installing Zed editor...${reset}" &&
+  curl -f https://zed.dev/install.sh | sh
+  mkdir -p ~/.config/zed &&
+  copy_config zed/settings.json ~/.config/zed/settings.json &&
+  copy_config zed/keymap.json ~/.config/zed/keymap.json
 }
 
 function prepare_firefox_repository() {
-    echo -e "${red}Preparing Firefox repository...${reset}" &&
-    # Create a directory to store APT repository keys if it doesn't exist
-    sudo install -d -m 0755 /etc/apt/keyrings &&
-    # Import the Mozilla APT repository signing key
-    wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null &&
-    # Add the Mozilla APT repository to sources.list
-    sudo tee /etc/apt/sources.list.d/mozilla.sources > /dev/null << EOF
-    Types: deb
-    URIs: https://packages.mozilla.org/apt
-    Suites: mozilla
-    Components: main
-    Signed-By: /etc/apt/keyrings/packages.mozilla.org.asc
-    EOF
-    # Configure APT to prioritize packages from the Mozilla repository
-    sudo tee /etc/apt/preferences.d/mozilla > /dev/null << EOF
-    Package: *
-    Pin: origin packages.mozilla.org
-    Pin-Priority: 1000
-    EOF
-    # Pin the firefox snap version below
-    sudo tee /etc/apt/preferences.d/mozilla > /dev/null << EOF
-    Package: firefox
-    Pin: release o=Ubuntu
-    Pin-Priority: -1
-    EOF
+  echo -e "${green}Preparing Firefox repository...${reset}" &&
+  # Create a directory to store APT repository keys if it doesn't exist
+  sudo install -d -m 0755 /etc/apt/keyrings &&
+  # Import the Mozilla APT repository signing key
+  wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null &&
+  # Add the Mozilla APT repository to sources.list
+  sudo tee /etc/apt/sources.list.d/mozilla.sources > /dev/null << EOF
+Types: deb
+URIs: https://packages.mozilla.org/apt
+Suites: mozilla
+Components: main
+Signed-By: /etc/apt/keyrings/packages.mozilla.org.asc
+EOF
+  # Configure APT to prioritize packages from the Mozilla repository
+  sudo tee /etc/apt/preferences.d/mozilla > /dev/null << EOF
+Package: *
+Pin: origin packages.mozilla.org
+Pin-Priority: 1000
+
+Package: firefox
+Pin: release o=Ubuntu
+Pin-Priority: -1
+EOF
 }
 
 function install_done() {
@@ -151,7 +152,7 @@ function install_for_root() {
   install_gitprompt &&
   install_rbenv &&
   install_asdf &&
-  cp ./.gitconfig ~/.gitconfig &&
+  copy_config .gitconfig ~/.gitconfig &&
   if [[ x$DISPLAY != x ]]; then
     install_zed &&
     prepare_firefox_repository &&
@@ -167,14 +168,12 @@ function install_for_non_root() {
   install_rbenv &&
   install_asdf &&
   mkdir -p ~/.config/mc &&
-  mkdir -p ~/.vim/autoload ~/.vim/bundle &&
-  curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim &&
-  git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree &&
-  cp ./.zshrc ~/.zshrc &&
-  cp ./.vimrc ~/.vimrc &&
-  cp ./.selected_editor ~/.selected_editor &&
-  cp ./mc/ini ~/.config/mc/ini &&
-  cp ./mc/panels.ini ~/.config/mc/panels.ini &&
+  copy_config mc/ini ~/.config/mc/ini &&
+  copy_config mc/panels.ini ~/.config/mc/panels.ini &&
+  copy_config vim/.vimrc ~/.vimrc &&
+  copy_config vim/.selected_editor ~/.selected_editor &&
+  copy_config .irbrc ~/.irbrc &&
+  copy_config .zshrc ~/.zshrc &&
   install_done &&
   echo -e "${green}. Ask root user to change your default shell to zsh.${reset}"
 }

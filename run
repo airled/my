@@ -140,7 +140,6 @@ function install_done() {
   echo -e "${green}Workspace has been setup.${reset}"
 }
 
-
 function install_for_root() {
   update &&
   install_curl &&

@@ -110,6 +110,12 @@ function install_zed() {
   copy_config zed/keymap.json ~/.config/zed/keymap.json
 }
 
+function install_alacritty() {
+  echo -e "${green}Installing Alacritty terminal...${reset}" &&
+  apt_install alacritty &&
+  copy_config .alacritty.toml ~/.alacritty.toml
+}
+
 function prepare_firefox_repository() {
   echo -e "${green}Preparing Firefox repository...${reset}" &&
   # Create a directory to store APT repository keys if it doesn't exist
@@ -154,6 +160,7 @@ function install_for_root() {
   copy_config .gitconfig ~/.gitconfig &&
   if [[ x$DISPLAY != x ]]; then
     install_zed &&
+    install_alacritty &&
     prepare_firefox_repository &&
     update &&
     install_done

@@ -24,6 +24,12 @@ function install_curl() {
   apt_install curl
 }
 
+function install_htop() {
+  apt_install htop &&
+  mkdir -p ~/.config/htop &&
+  copy_config htoprc ~/.config/htop/htoprc
+}
+
 function install_zsh() {
   apt_install zsh &&
   copy_config .zshrc ~/.zshrc &&
@@ -149,6 +155,7 @@ function install_done() {
 function install_for_root() {
   update &&
   install_curl &&
+  install_htop &&
   install_zsh &&
   install_vim &&
   install_mc &&
@@ -180,6 +187,7 @@ function install_for_non_root() {
   copy_config vim/.selected_editor ~/.selected_editor &&
   copy_config .irbrc ~/.irbrc &&
   copy_config .zshrc ~/.zshrc &&
+  copy_config htoprc ~/.config/htop/htoprc
   install_done &&
   echo -e "${green}. Ask root user to change your default shell to zsh.${reset}"
 }

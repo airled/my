@@ -24,6 +24,11 @@ function install_curl() {
   apt_install curl
 }
 
+function install_git() {
+  apt_install git &&
+  copy_config .gitconfig ~/.gitconfig
+}
+
 function install_htop() {
   apt_install htop &&
   mkdir -p ~/.config/htop &&
@@ -117,7 +122,6 @@ function install_zed() {
 }
 
 function install_alacritty() {
-  echo -e "${green}Installing Alacritty terminal...${reset}" &&
   apt_install alacritty &&
   copy_config .alacritty.toml ~/.alacritty.toml
 }
@@ -155,6 +159,7 @@ function install_done() {
 function install_for_root() {
   update &&
   install_curl &&
+  install_git &&
   install_htop &&
   install_zsh &&
   install_vim &&
@@ -164,7 +169,6 @@ function install_for_root() {
   install_gitprompt &&
   install_rbenv &&
   install_asdf &&
-  copy_config .gitconfig ~/.gitconfig &&
   if [[ x$DISPLAY != x ]]; then
     install_zed &&
     install_alacritty &&

@@ -5,64 +5,64 @@ green='\033[0;32m'
 yellow='\033[0;33m'
 reset='\033[0m'
 
-function update() {
+update() {
   echo -e "${green}Updating repositories...${reset}" &&
   sudo apt-get update
 }
 
-function apt_install() {
+apt_install() {
   echo -e "${green}Installing $1...${reset}" &&
   sudo apt-get -y install $1
 }
 
-function copy_config() {
+copy_config() {
   echo -e "${green}Copying config $1 to $2...${reset}" &&
   cp ./configs/$1 $2
 }
 
-function install_curl() {
+install_curl() {
   apt_install curl
 }
 
-function install_git() {
+install_git() {
   apt_install git &&
   copy_config .gitconfig ~/.gitconfig
 }
 
-function install_htop() {
+install_htop() {
   apt_install htop &&
   mkdir -p ~/.config/htop &&
   copy_config htoprc ~/.config/htop/htoprc
 }
 
-function install_zsh() {
+install_zsh() {
   apt_install zsh &&
   copy_config .zshrc ~/.zshrc &&
   sudo chsh -s /bin/zsh
 }
 
-function install_vim() {
+install_vim() {
   apt_install vim &&
   copy_config vim/.vimrc ~/.vimrc &&
   copy_config vim/.selected_editor ~/.selected_editor
 }
 
-function install_mc() {
+install_mc() {
   apt_install mc &&
   mkdir -p ~/.config/mc &&
   copy_config mc/ini ~/.config/mc/ini &&
   copy_config mc/panels.ini ~/.config/mc/panels.ini
 }
 
-function install_fd() {
+install_fd() {
   apt_install fd-find
 }
 
-function install_ncdu() {
+install_ncdu() {
   apt_install ncdu
 }
 
-function install_gitprompt() {
+install_gitprompt() {
   echo -e "${green}Installing git-prompt...${reset}" &&
   if [[ -d ~/.git-prompt.zsh ]]; then
     echo -e "${yellow}git-prompt found. Updating...${reset}" &&
@@ -72,7 +72,7 @@ function install_gitprompt() {
   fi
 }
 
-function install_rbenv() {
+install_rbenv() {
   echo -e "${yellow}Install rbenv? y/n${reset}"
   read should_install_rbenv
   if [[ $should_install_rbenv == 'y' ]]; then
@@ -97,7 +97,7 @@ function install_rbenv() {
   fi
 }
 
-function install_asdf() {
+install_asdf() {
   echo -e "${yellow}Install asdf? y/n${reset}"
   read should_install_asdf
   if [[ $should_install_asdf == 'y' ]]; then
@@ -113,7 +113,7 @@ function install_asdf() {
   fi
 }
 
-function install_zed() {
+install_zed() {
   echo -e "${green}Installing Zed editor...${reset}" &&
   curl -f https://zed.dev/install.sh | sh
   mkdir -p ~/.config/zed &&
@@ -121,12 +121,12 @@ function install_zed() {
   copy_config zed/keymap.json ~/.config/zed/keymap.json
 }
 
-function install_alacritty() {
+install_alacritty() {
   apt_install alacritty &&
   copy_config .alacritty.toml ~/.alacritty.toml
 }
 
-function prepare_firefox_repository() {
+prepare_firefox_repository() {
   echo -e "${green}Preparing Firefox repository...${reset}" &&
   # Create a directory to store APT repository keys if it doesn't exist
   sudo install -d -m 0755 /etc/apt/keyrings &&
@@ -152,11 +152,11 @@ Pin-Priority: -1
 EOF
 }
 
-function install_done() {
+install_done() {
   echo -e "${green}Workspace has been setup.${reset}"
 }
 
-function install_for_root() {
+install_for_root() {
   update &&
   install_curl &&
   install_git &&
@@ -180,7 +180,7 @@ function install_for_root() {
   fi
 }
 
-function install_for_non_root() {
+install_for_non_root() {
   install_gitprompt &&
   install_rbenv &&
   install_asdf &&

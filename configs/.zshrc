@@ -93,6 +93,7 @@ alias ffmpeg='ffmpeg -hide_banner'
 alias rs='rsync -Pa'
 alias h='htop'
 alias oc='opencode'
+alias bat='batcat'
 
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"

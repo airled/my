@@ -58,6 +58,10 @@ install_fd() {
   apt_install fd-find
 }
 
+install_bat() {
+  apt_install bat
+}
+
 install_ncdu() {
   apt_install ncdu
 }
@@ -165,6 +169,7 @@ install_for_root() {
   install_vim &&
   install_mc &&
   install_fd &&
+  install_bat &&
   install_ncdu &&
   install_gitprompt &&
   install_rbenv &&

@@ -7,6 +7,7 @@ Just gitclone it and run `./run`. If you are a sudoer, it will install:
 - vim (+ configs)
 - mc (+ configs)
 - [fdfind](https://github.com/sharkdp/fd) (better than `find` with alias set to just `fd`)
+- [bat](https://github.com/sharkdp/bat) (better than `cat` with alias set to just `bat`)
 - ncdu
 - [git-prompt.zsh](https://github.com/woefe/git-prompt.zsh) (smart git status in your zsh-prompt)
 - [rbenv](https://github.com/rbenv/rbenv) with [ruby-build](https://github.com/rbenv/ruby-build)

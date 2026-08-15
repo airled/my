@@ -29,11 +29,13 @@
   "toolbar": {
     "selections_menu": true,
     "quick_actions": false,
-    "breadcrumbs": false,
+    "breadcrumbs": true,
   },
   "buffer_font_weight": 500.0,
   "project_panel": {
     "dock": "left",
+    "file_icons": false,
+    "auto_reveal_entries": false,
   },
   "disable_ai": true,
   "telemetry": {

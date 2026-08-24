@@ -88,12 +88,11 @@ alias dfh='df -hT | { read -r line; echo "$line"; sort -k 7,7; }'
 alias tf='tail -f'
 alias j='journalctl -fu'
 alias dl='docker logs -f -n 100'
-alias ffprobe='ffprobe -hide_banner'
-alias ffmpeg='ffmpeg -hide_banner'
 alias rs='rsync -Pa'
 alias h='htop'
 alias oc='opencode'
 alias bat='batcat'
+alias cap='ffmpeg -video_size 1920x1080 -framerate 30 -f x11grab -i :0.0 output.mp4'
 
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"

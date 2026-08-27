@@ -190,6 +190,8 @@ install_for_root() {
   install_rbenv &&
   install_asdf &&
   prepare_docker_repository &&
+  copy_config .psqlrc ~/.psqlrc &&
+  copy_config .sqliterc ~/.sqliterc &&
   if [[ x$DISPLAY != x ]]; then
     install_zed &&
     install_alacritty &&
@@ -211,8 +213,11 @@ install_for_non_root() {
   copy_config vim/.vimrc ~/.vimrc &&
   copy_config vim/.selected_editor ~/.selected_editor &&
   copy_config .irbrc ~/.irbrc &&
+  copy_config .psqlrc ~/.psqlrc &&
+  copy_config .sqliterc ~/.sqliterc &&
   copy_config .zshrc ~/.zshrc &&
-  copy_config htoprc ~/.config/htop/htoprc
+  mkdir -p ~/.config/htop &&
+  copy_config htoprc ~/.config/htop/htoprc &&
   install_done &&
   echo -e "${green}. Ask root user to change your default shell to zsh.${reset}"
 }

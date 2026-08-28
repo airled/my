@@ -1,5 +1,5 @@
 The script has been done for deb-based systems with `apt-get`.
-Just gitclone it and run `./run`. If you are a sudoer, it will install:
+Just gitclone it and run `./run`. If you are a sudoer, it will install/copy:
 - curl
 - git (+ config)
 - htop (+ config)
@@ -16,5 +16,7 @@ Just gitclone it and run `./run`. If you are a sudoer, it will install:
 - Alacritty terminal (+ config) / if GUI
 - Preparation for Docker repository
 - Preparation for Firefox repository (give official repository more priority than snap version)
+- copy `.psqlrc`
+- copy `.sqliterc`
 
 If you are not a sudoer, the script will just copy the configs and install github-based apps.

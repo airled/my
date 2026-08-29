@@ -14,6 +14,7 @@ Just gitclone it and run `./run`. If you are a sudoer, it will install/copy:
 - [asdf](https://github.com/asdf-vm/asdf)
 - Zed editor (+ config) / if GUI
 - Alacritty terminal (+ config) / if GUI
+- Preparation for PostgreSQL repository
 - Preparation for Docker repository
 - Preparation for Firefox repository (give official repository more priority than snap version)
 - copy `.psqlrc`

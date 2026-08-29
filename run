@@ -157,6 +157,7 @@ EOF
 }
 
 prepare_docker_repository() {
+  echo -e "${green}Preparing Docker repository...${reset}" &&
   sudo apt install ca-certificates &&
   sudo install -m 0755 -d /etc/apt/keyrings &&
   sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc &&
@@ -169,6 +170,12 @@ Components: stable
 Architectures: $(dpkg --print-architecture)
 Signed-By: /etc/apt/keyrings/docker.asc
 EOF
+}
+
+prepare_postgresql_repository() {
+  echo -e "${green}Preparing PostgreSQL repository...${reset}" &&
+  apt_install postgresql-common &&
+  sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
 }
 
 install_done() {
@@ -190,6 +197,7 @@ install_for_root() {
   install_rbenv &&
   install_asdf &&
   prepare_docker_repository &&
+  prepare_postgresql_repository &&
   copy_config .psqlrc ~/.psqlrc &&
   copy_config .sqliterc ~/.sqliterc &&
   if [[ x$DISPLAY != x ]]; then

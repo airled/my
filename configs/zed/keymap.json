@@ -25,4 +25,15 @@
       "ctrl-shift-enter": "editor::NewlineAbove",
     },
   },
+  {
+    "bindings": {
+      "alt-f10": "zed::Zoom"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-f": "workspace::NewSearch",
+    }
+  }
 ]

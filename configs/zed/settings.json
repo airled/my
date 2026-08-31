@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "unnecessary_code_fade": 0.5,
   "diff_view_style": "unified",
   "cli_default_open_behavior": "new_window",
   "multi_cursor_modifier": "cmd_or_ctrl",
@@ -19,7 +20,7 @@
       "show_avatar": false
     },
     "enable_diff": false,
-    "enable_status": false,
+    "enable_status": true,
     "inline_blame": {
       "enabled": false,
     },
@@ -51,43 +52,16 @@
   "theme": "One Dark",
   "theme_overrides": {
     "One Dark": {
-      "text.muted": "#FFFFFF",
-      "background": "#0C1021",
-      "editor.background": "#0C1021",
-      "editor.foreground": "#F8F8F8",
+      "text.muted": "#DDD",
+      "background": "#000",
+      "editor.background": "#000",
+      "editor.foreground": "#FFF",
+      "tab_bar.background": "#000",
+      "terminal.background": "#000",
+      "terminal.foreground": "#DDD",
       "syntax": {
-        "comment": {
-          "color": "#AEAEAEFF",
-        },
         "string": {
           "color": "#61CE3CFF",
-        },
-        "keyword": {
-          "color": "#FBDE2DFF",
-        },
-        "function": {
-          "color": "#ffa061FF",
-        },
-        "type": {
-          "color": "#8DA6CEFF",
-        },
-        "variable": {
-          "color": "#FFFFFFFF",
-        },
-        "number": {
-          "color": "#D8FA3CFF",
-        },
-        "operator": {
-          "color": "#FBDE2DFF",
-        },
-        "property": {
-          "color": "#FFFFFFFF",
-        },
-        "constant": {
-          "color": "#8DA6CEFF",
-        },
-        "comment.doc": {
-          "color": "#AEAEAEFF",
         },
         "string.escape": {
           "color": "#61CE3CFF",
@@ -98,20 +72,15 @@
         "string.special": {
           "color": "#61CE3CFF",
         },
-        "string.special.symbol": {
-          "color": "#D8FA3CFF",
-        },
         "text.literal": {
           "color": "#61CE3CFF",
         },
-        "boolean": {
-          "color": "#D8FA3CFF",
+
+        "type": {
+          "color": "#8DA6CEFF",
         },
-        "preproc": {
-          "color": "#FBDE2DFF",
-        },
-        "attribute": {
-          "color": "#FFFFFFFF",
+        "constant": {
+          "color": "#8DA6CEFF",
         },
         "enum": {
           "color": "#8DA6CEFF",
@@ -122,32 +91,77 @@
         "variant": {
           "color": "#8DA6CEFF",
         },
-        "variable.special": {
-          "color": "#FFFFFFFF",
-        },
-        "label": {
-          "color": "#FFFFFFFF",
-        },
-        "punctuation": {
-          "color": "#FFFFFFFF",
-        },
-        "punctuation.bracket": {
-          "color": "#FFFFFFFF",
-        },
-        "punctuation.delimiter": {
-          "color": "#FFFFFFFF",
-        },
-        "punctuation.list_marker": {
-          "color": "#FFFFFFFF",
-        },
-        "punctuation.markup": {
-          "color": "#FFFFFFFF",
-        },
-        "punctuation.special": {
-          "color": "#FFFFFFFF",
-        },
         "tag": {
           "color": "#8DA6CEFF",
+        },
+
+        "variable": {
+          "color": "#DDD",
+        },
+        "property": {
+          "color": "#DDD",
+        },
+        "attribute": {
+          "color": "#DDD",
+        },
+        "variable.special": {
+          "color": "#DDD",
+        },
+        "label": {
+          "color": "#DDD",
+        },
+        "punctuation": {
+          "color": "#DDD",
+        },
+        "punctuation.bracket": {
+          "color": "#DDD",
+        },
+        "punctuation.delimiter": {
+          "color": "#DDD",
+        },
+        "punctuation.list_marker": {
+          "color": "#DDD",
+        },
+        "punctuation.markup": {
+          "color": "#DDD",
+        },
+        "punctuation.special": {
+          "color": "#DDD",
+        },
+        "primary": {
+          "color": "#DDD",
+        },
+        "embedded": {
+          "color": "#DDD",
+        },
+        "predictive": {
+          "color": "#DDD",
+        },
+        "hint": {
+          "color": "#DDD",
+        },
+        "variable.parameter": {
+          "color": "#DDD"
+        },
+
+        "number": {
+          "color": "#D8FA3CFF",
+        },
+        "boolean": {
+          "color": "#D8FA3CFF",
+        },
+        "string.special.symbol": {
+          "color": "#D8FA3CFF",
+        },
+
+        "keyword": {
+          "color": "#FBDE2DFF",
+        },
+        "operator": {
+          "color": "#FBDE2DFF",
+        },
+        "preproc": {
+          "color": "#FBDE2DFF",
         },
         "title": {
           "color": "#FBDE2DFF",
@@ -170,21 +184,10 @@
         "selector.pseudo": {
           "color": "#FBDE2DFF",
         },
-        "primary": {
-          "color": "#FFFFFFFF",
+
+        "function": {
+          "color": "#ffa061FF",
         },
-        "embedded": {
-          "color": "#FFFFFFFF",
-        },
-        "predictive": {
-          "color": "#FFFFFFFF",
-        },
-        "hint": {
-          "color": "#FFFFFFFF",
-        },
-        "variable.parameter": {
-          "color": "#FFFFFF"
-        }
       },
     },
   },

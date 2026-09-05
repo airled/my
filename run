@@ -20,6 +20,10 @@ copy_config() {
   cp ./configs/$1 $2
 }
 
+install_jq() {
+  apt_install jq
+}
+
 install_curl() {
   apt_install curl
 }
@@ -185,6 +189,7 @@ install_done() {
 install_for_root() {
   update &&
   install_curl &&
+  install_jq &&
   install_git &&
   install_htop &&
   install_zsh &&

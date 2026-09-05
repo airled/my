@@ -1,6 +1,7 @@
 The script has been done for deb-based systems with `apt-get`.
 Just gitclone it and run `./run`. If you are a sudoer, it will install/copy:
 - curl
+- jq
 - git (+ config)
 - htop (+ config)
 - zsh (+ config)

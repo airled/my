@@ -61,7 +61,7 @@ alias grl='git reset HEAD^'
 alias grm='git rebase main'
 alias lg='git log --pretty=format:"%C(green)%H%Cred%d%n%C(yellow)%ae  %ai%n%s%n"'
 alias gcl='git checkout -f && git clean -df'
-alias apti='sudo apt install'
+alias apti='sudo apt install --no-install-recommends --no-install-suggests'
 alias ipa="ip -c a | grep '^[0-9]\+:\|inet' | grep -v LOOPBACK | grep -v 'scope host'"
 alias ipr="ip -c -4 route show table all type unicast && echo '---' && ip -c -6 route show table all type unicast"
 alias p="ss -ltupn | tail -n +2 | sed -E '/(tcp)/s//\x1b[32m\1\x1b[37m/' | sed -E '/(udp)/s//\x1b[35m\1\x1b[37m/'"
